@@ -1,0 +1,45 @@
+* Starting Ubuntu
+
+** Update/upgrade system
+
+- sudo apt update
+- sudo apt upgrade
+
+** Setting telex
+
+- sudo apt install ibus-unikey
+- ibus-daemon -Rd
+- im-config
+
+# choose "Intelligent Input Bus" and restart
+
+# Go to "Region & Language" in Settings and search for Unikey
+
+** Change Keyboard Shortcuts in Settings 
+
+Close window: Super+Q
+
+** Change dock to the bottom
+
+** Install GNU Emacs from Ubuntu Software Store
+
+*** TODO setup emacs
+
+** Change Desktop and Lockscreen background
+
+** Change terminal font size and shortcuts
+
+Zoom In: Ctrl+=
+Zoom Out: Ctrl+-
+New Tab: Super+T
+Close Tab: Super+W
+Copy: Alt+W
+Paste: Ctrl+Y
+
+** TODO Install git, docker
+
+** TODO Set up key mapping XKB
+** TODO Set up bash profile
+
+# clean up
+- rm -rf /var/lib/apt/lists/*
