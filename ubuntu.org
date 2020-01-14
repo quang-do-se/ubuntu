@@ -36,10 +36,64 @@ Close Tab: Super+W
 Copy: Alt+W
 Paste: Ctrl+Y
 
-** TODO Install git, docker
+** Install Git
+
+- sudo apt install git
+- git config --global user.email "quang.do.se@gmail.com"
+- git config --global user.name "Q Do"
+
+** TODO Install docker
+
 
 ** TODO Set up key mapping XKB
+
+#+BEGIN_SRC sh
+
+# Get current configuration
+
+xkbcomp $DISPLAY output.xkb
+
+
+#+END_SRC
+
+Navigation: up, down, left, right, page up, page down, home, end, Atl-F -> Alt-right, Alt-B -> Alt-left
+Modifiers: Caplocks -> Control, Enter -> Control, Control-M -> Enter
+
+- add shell script to .bashrc to recompile xkb when open a terminal
+- or create a systemd service to recompile xkb on startup
+
+
 ** TODO Set up bash profile
 
-# clean up
+** clean up
 - rm -rf /var/lib/apt/lists/*
+
+** Enable Emacs keybinding in app
+
+#+BEGIN_SRC sh
+
+gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+
+# switch back
+gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
+
+# Or edit in
+/usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
+
+#+END_SRC
+
+** TODO Make Chrome Extension for Emacs shortcuts 
+
+https://github.com/OTL/emacs_shortcuts_ime
+
+IME - Input Method Editors
+
+** Open Terminal on start up
+
+- Press the Super key (windows key).
+- Type "Startup Applications"
+- Click on the Startup Applications option
+- Click "Add"
+- In the "name" field, type Terminal
+- In the "command" field, type "gnome-terminal --full-screen"
+- Click "Add"
