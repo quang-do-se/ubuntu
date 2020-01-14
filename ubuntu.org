@@ -59,9 +59,17 @@ xkbcomp $DISPLAY output.xkb
 Navigation: up, down, left, right, page up, page down, home, end, Atl-F -> Alt-right, Alt-B -> Alt-left
 Modifiers: Caplocks -> Control, Enter -> Control, Control-M -> Enter
 
-- add shell script to .bashrc to recompile xkb when open a terminal
-- or create a systemd service to recompile xkb on startup
+- add shell script to .bashrc and .profile to recompile xkb when open a terminal
 
+** Open Terminal on start up
+
+- Press the Super key (windows key).
+- Type "Startup Applications"
+- Click on the Startup Applications option
+- Click "Add"
+- In the "name" field, type Terminal
+- In the "command" field, type "gnome-terminal --full-screen"
+- Click "Add"
 
 ** TODO Set up bash profile
 
@@ -88,12 +96,4 @@ https://github.com/OTL/emacs_shortcuts_ime
 
 IME - Input Method Editors
 
-** Open Terminal on start up
 
-- Press the Super key (windows key).
-- Type "Startup Applications"
-- Click on the Startup Applications option
-- Click "Add"
-- In the "name" field, type Terminal
-- In the "command" field, type "gnome-terminal --full-screen"
-- Click "Add"
