@@ -57,16 +57,9 @@ xkbcomp $DISPLAY output.xkb
 Navigation: up, down, left, right, page up, page down, home, end, Atl-F -> Alt-right, Alt-B -> Alt-left
 Modifiers: Caplocks -> Control, Enter -> Control, Control-M -> Enter
 
-- add shell script to .bashrc and .profile to recompile xkb when open a terminal
+- issue with xkb reset after suspend or wake up from suspense
 
-- issue with xkb reset after 'systemctl suspend' or wake up from suspense
-  
-  - /lib/systemd/system-sleep/resume: 
-
-    - need to wait for some seconds to compile xkb again
-
-    - need to specify $DISPLAY and run under specific user, host and home env
-
+- change xkb directly in `/usr/share/X11/xkb/`
 
 ** Open Terminal on start up
 
