@@ -44,6 +44,7 @@ Paste: Ctrl+Y
 
 ** TODO Install docker
 
+- check and update java version
 
 ** TODO Set up key mapping XKB
 
@@ -54,8 +55,24 @@ xkbcomp $DISPLAY output.xkb
 
 #+END_SRC
 
-Navigation: up, down, left, right, page up, page down, home, end, Atl-F -> Alt-right, Alt-B -> Alt-left
-Modifiers: Caplocks -> Control, Enter -> Control, Control-M -> Enter
+Navigation:
+- up
+- down
+- left
+- right
+- page
+- up
+- page
+- down
+- home
+- end
+- Atl-F -> Alt-right
+- Alt-B -> Alt-left
+
+Modifiers: 
+- Caplocks -> Control
+- Enter -> Control
+- Control-M -> Enter
 
 - issue with xkb reset after suspend or wake up from suspense
 
@@ -73,8 +90,11 @@ Modifiers: Caplocks -> Control, Enter -> Control, Control-M -> Enter
 
 ** TODO Set up bash profile
 
-** clean up
-- rm -rf /var/lib/apt/lists/*
+** Clean up
+
+#+BEGIN_SRC 
+rm -rf /var/lib/apt/lists/*
+#+END_SRC
 
 ** Enable Emacs keybinding in app
 
@@ -90,7 +110,7 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
 
 #+END_SRC
 
-** TODO Make Chrome Extension for Emacs shortcuts 
+*** TODO Make Chrome Extension for Emacs shortcuts 
 
 https://github.com/OTL/emacs_shortcuts_ime
 
