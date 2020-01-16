@@ -1,4 +1,4 @@
-* Starting Ubuntu
+* Starting Ubuntu 18.04.3 LTS
 
 ** Update/upgrade system
 
@@ -45,6 +45,27 @@ Paste: Ctrl+Y
 ** TODO Install docker
 
 - check and update java version
+
+#+BEGIN_SRC 
+
+# Set up the repository
+sudo apt update
+sudo apt upgrade
+sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+sudo apt remove docker docker-engine docker.io containerd runc
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+# Install docker engine - community
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io
+
+# Install docker-compose
+sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+#+END_SRC
 
 ** TODO Set up key mapping XKB
 
