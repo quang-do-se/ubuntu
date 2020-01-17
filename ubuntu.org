@@ -131,10 +131,21 @@ gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
 
 #+END_SRC
 
-*** TODO Make Chrome Extension for Emacs shortcuts 
+** Add user
 
-https://github.com/OTL/emacs_shortcuts_ime
+#+BEGIN_SRC sh
 
-IME - Input Method Editors
+# Add new user
+sudo adduser [username]
 
+# Add user to sudo group
+usermod -aG sudo [username]
+
+# Enable root password
+sudo passwd root
+
+# Disable root account
+sudo passed -dl root
+
+#+END_SRC
 
