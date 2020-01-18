@@ -2,14 +2,19 @@
 
 ** Update/upgrade system
 
-- sudo apt update
-- sudo apt upgrade
+#+BEGIN_SRC  sh
+sudo apt update
+
+sudo apt upgrade
+#+END_SRC
 
 ** Install a clip board manager
 
+#+BEGIN_SRC  sh
 sudo apt install xclip
 
 sudo apt install copyq
+#+END_SRC
 
 ** Change Keyboard Shortcuts in Settings 
 
