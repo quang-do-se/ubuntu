@@ -18,6 +18,17 @@
 ** Change Keyboard Shortcuts in Settings 
 
 Close window: Super+Q
+Log out: Ctrl+Super+L
+
+Close window: Ctrl+Alt+Q
+
+Maximize window: Ctrl+Alt+P
+Restore Window: Ctrl+Alt+N
+View split on left: Ctrl+Alt+B
+View split on right: Ctrl+Alt+F
+
+Move to workspace above: Alt+[
+Move to workspace below: Alt+]
 
 ** Change dock to the bottom
 
@@ -35,6 +46,8 @@ New Tab: Super+T
 Close Tab: Super+W
 Copy: Alt+W
 Paste: Ctrl+Y
+Next Tap: Atl+N
+Previous Tap: Atl+P
 
 ** Install Git
 
