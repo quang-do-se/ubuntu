@@ -5,15 +5,11 @@
 - sudo apt update
 - sudo apt upgrade
 
-** Setting telex
+** Install a clip board manager
 
-- sudo apt install ibus-unikey
-- ibus-daemon -Rd
-- im-config
+sudo apt install xclip
 
-# choose "Intelligent Input Bus" and restart
-
-# Go to "Region & Language" in Settings and search for Unikey
+sudo apt install copyq
 
 ** Change Keyboard Shortcuts in Settings 
 
@@ -52,11 +48,21 @@ Paste: Ctrl+Y
 Next Tap: Atl+N
 Previous Tap: Atl+P
 
-** Install Git
+** Install and set up Git
 
-- sudo apt install git
-- git config --global user.email "quang.do.se@gmail.com"
-- git config --global user.name "Q Do"
+#+BEGIN_SRC  bash
+
+sudo apt install git
+git config --global user.email "quang.do.se@gmail.com"
+git config --global user.name "Q Do"
+
+# Create rsa key
+ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
+
+# Copy public key
+cat ~/.ssh/id_rsa.pub | xclip -sel c
+
+#+END_SRC
 
 ** TODO Install docker
 
@@ -165,3 +171,12 @@ sudo passed -dl root
 
 #+END_SRC
 
+** Setting telex
+
+- sudo apt install ibus-unikey
+- ibus-daemon -Rd
+- im-config
+
+# choose "Intelligent Input Bus" and restart
+
+# Go to "Region & Language" in Settings and search for Unikey
