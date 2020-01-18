@@ -22,13 +22,16 @@ Log out: Ctrl+Super+L
 
 Close window: Ctrl+Alt+Q
 
-Maximize window: Ctrl+Alt+P
-Restore Window: Ctrl+Alt+N
-View split on left: Ctrl+Alt+B
-View split on right: Ctrl+Alt+F
+Maximize window:
+Restore Window:
+View split on left:
+View split on right:
 
 Move to workspace above: Alt+[
 Move to workspace below: Alt+]
+
+Suspend: Ctr+Alt+Backspace
+  - systemctl suspend
 
 ** Change dock to the bottom
 
