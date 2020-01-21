@@ -32,7 +32,10 @@ Move to workspace above: Alt+[
 Move to workspace below: Alt+]
 
 Suspend: Ctr+Alt+Backspace
-  - systemctl suspend
+
+#+BEGIN_SRC  sh
+systemctl suspend
+#+END_SRC
 
 ** Change dock to the bottom
 
@@ -178,10 +181,19 @@ sudo passed -dl root
 
 ** Setting telex
 
-- sudo apt install ibus-unikey
-- ibus-daemon -Rd
-- im-config
+#+BEGIN_SRC  sh
+
+# install unikey
+sudo apt install ibus-unikey
+
+ibus-daemon -Rd
+
+im-config
 
 # choose "Intelligent Input Bus" and restart
 
 # Go to "Region & Language" in Settings and search for Unikey
+
+#+END_SRC
+
+
