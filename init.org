@@ -6,6 +6,8 @@
 sudo apt update
 
 sudo apt upgrade
+
+sudo ubuntu-drivers autoinstall
 #+END_SRC
 
 ** Install a clip board manager
