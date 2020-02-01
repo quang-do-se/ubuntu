@@ -203,4 +203,4 @@ im-config
 ** Add start up command
 
 # Search for 'Startup Applications Preferences' in Settings
-# Add 'gnome-terminal'
+# Add 'gnome-terminal --full-screen'
