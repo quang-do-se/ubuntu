@@ -70,6 +70,10 @@ ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
 # Copy public key
 cat ~/.ssh/id_rsa.pub | xclip -sel c
 
+# If error 'sign_and_send_pubkey: signing failed: agent refused operation'
+sudo chmod -R 400 ~/.ssh
+ssh-add
+
 #+END_SRC
 
 ** TODO Install docker
