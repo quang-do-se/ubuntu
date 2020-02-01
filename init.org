@@ -200,4 +200,7 @@ im-config
 
 #+END_SRC
 
+** Add start up command
 
+# Search for 'Startup Applications Preferences' in Settings
+# Add 'gnome-terminal'
