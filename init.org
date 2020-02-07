@@ -213,6 +213,6 @@ im-config
 
 #+BEGIN_SRC sh
 
-sudo apt install -y default-jdk openjdk-11-jdk-headless
+sudo apt install -y default-jdk
 
 #+END_SRC
