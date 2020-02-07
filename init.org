@@ -10,7 +10,7 @@ sudo apt upgrade
 sudo ubuntu-drivers autoinstall
 #+END_SRC
 
-** Install a clip board manager
+** Install a clip board manager and add shortcut for copy/paste
 
 #+BEGIN_SRC  sh
 sudo apt install xclip
@@ -204,3 +204,15 @@ im-config
 
 # Search for 'Startup Applications Preferences' in Settings
 # Add 'gnome-terminal --full-screen'
+
+** Check which graphic card is being used
+
+# lspci -k | grep -A 2 -i "VGA"
+
+** Install JDK
+
+#+BEGIN_SRC sh
+
+sudo apt install -y default-jdk openjdk-11-jdk-headless
+
+#+END_SRC
