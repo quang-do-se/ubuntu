@@ -21,12 +21,12 @@ sudo apt install copyq
 ** Change Keyboard Shortcuts in Settings 
 
 Log out: Ctrl+Alt+L
-Close window: Ctrl+Alt+Q
+Close window: Ctrl+Alt+Escape
 
-Maximize window: Ctrl+Alt+P
-Restore Window: Ctrl+Alt+N
-View split on left: Ctrl+Alt+B
-View split on right: Ctrl+Alt+F
+Maximize window: Ctrl+Super+i
+Restore Window: Ctrl+Super+k
+View split on left: Ctrl+Super+j
+View split on right: Ctrl+Super+l
 
 Move to workspace above: Alt+[
 Move to workspace below: Alt+]
