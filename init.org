@@ -108,6 +108,9 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Get current configuration
 xkbcomp $DISPLAY output.xkb
 
+# See real live mapping
+xev
+
 #+END_SRC
 
 Navigation:
