@@ -219,3 +219,26 @@ im-config
 sudo apt install -y default-jdk
 
 #+END_SRC
+
+** Update Chrome
+
+#+BEGIN_SRC sh
+
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+
+sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+
+sudo apt update
+
+sudo apt --only-upgrade install google-chrome-stable
+
+sudo apt install libnss3
+
+# kill old hidden chrome processes
+sudo pkill -15 google-chrome
+sudo pkill -15 chrome
+
+# -15 is SIGTERM signal. Use below command a complete list
+kill -l
+
+#+END_SRC
