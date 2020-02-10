@@ -212,7 +212,13 @@ im-config
 
 ** Check which graphic card is being used
 
-# lspci -k | grep -A 2 -i "VGA"
+#+BEGIN_SRC sh
+
+lspci -k | grep -A 2 -i "VGA"
+
+lshw -C video
+
+#+END_SRC
 
 ** Install JDK
 
