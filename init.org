@@ -20,7 +20,7 @@ sudo apt install copyq
 
 ** Change Keyboard Shortcuts in Settings 
 
-Log out: Ctrl+Alt+L
+Log out: Ctrl+Alt+l
 Close window: Ctrl+Alt+Escape
 
 Maximize window: Ctrl+Super+i
@@ -30,6 +30,8 @@ View split on right: Ctrl+Super+l
 
 Move to workspace above: Alt+[
 Move to workspace below: Alt+]
+
+Copy a screenshot of an area to clipboard: Shift+Super+p
 
 Suspend: Ctr+Alt+Backspace
 
