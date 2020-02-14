@@ -18,6 +18,8 @@ sudo apt install xclip
 sudo apt install copyq
 #+END_SRC
 
+- In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Alt+Y*
+
 ** Change Keyboard shortcuts in Settings
 
 Log out: Ctrl+Alt+l
