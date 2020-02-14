@@ -242,7 +242,7 @@ sudo apt install -y default-jdk
 
 #+END_SRC
 
-** Update Chrome
+** Google Chrome
 
 #+BEGIN_SRC sh
 
@@ -264,6 +264,14 @@ sudo pkill -15 chrome
 kill -l
 
 #+END_SRC
+
+*** Turn off network cache that automatically adds =.com= and =www.= to url
+
+- Go to Chrome
+- Click *F12*
+- Go to *Network* tab
+- Choose *Disable cache*
+
 ** Hide top bar
 
 - Go to =Ubuntu Software= app
