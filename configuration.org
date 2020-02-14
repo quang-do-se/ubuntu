@@ -18,7 +18,7 @@ sudo apt install xclip
 sudo apt install copyq
 #+END_SRC
 
-** Change Keyboard Shortcuts in Settings 
+** Change Keyboard shortcuts in Settings
 
 Log out: Ctrl+Alt+l
 Close window: Ctrl+Alt+Escape
@@ -39,7 +39,21 @@ Suspend: Ctr+Alt+Backspace
 systemctl suspend
 #+END_SRC
 
-** Change dock to the bottom
+** Change dock to the bottom and center
+
+#+BEGIN_SRC sh
+
+sudo apt install dconf-tools
+
+gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
+gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
+
+# In case of messing up, run `gsettings reset [config]`
+
+#+END_SRC
 
 ** Install GNU Emacs from Ubuntu Software Store
 
@@ -250,3 +264,10 @@ sudo pkill -15 chrome
 kill -l
 
 #+END_SRC
+** Hide top bar
+
+- Go to =Ubuntu Software= app
+- Search =Hide Top Bar=
+- Go to =Tweaks= app
+- Click on =Extensions= tab
+- Enable =Hide Top Bar=
