@@ -22,7 +22,7 @@ sudo apt install copyq
 
 ** Change Keyboard shortcuts in Settings
 
-Log out: Ctrl+Alt+l
+Log out: Super+l
 Close window: Ctrl+Alt+Escape
 
 Maximize window: Ctrl+Super+i
