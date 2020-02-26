@@ -92,6 +92,11 @@ cat ~/.ssh/id_rsa.pub | xclip -sel c
 sudo chmod -R 400 ~/.ssh
 ssh-add
 
+# Update to latest version
+sudo add-apt-repository -y ppa:git-core/ppa
+sudo apt-get update
+sudo apt-get install git -y
+
 #+END_SRC
 
 ** TODO Install docker
