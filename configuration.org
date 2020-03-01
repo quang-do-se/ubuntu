@@ -3,19 +3,19 @@
 ** Update/upgrade system
 
 #+BEGIN_SRC  sh
-sudo apt update
+  sudo apt update
 
-sudo apt upgrade
+  sudo apt upgrade
 
-sudo ubuntu-drivers autoinstall
+  sudo ubuntu-drivers autoinstall
 #+END_SRC
 
 ** Install a clip board manager and add shortcut for copy/paste
 
 #+BEGIN_SRC  sh
-sudo apt install xclip
+  sudo apt install xclip
 
-sudo apt install copyq
+  sudo apt install copyq
 #+END_SRC
 
 - In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Alt+Y*
@@ -37,24 +37,22 @@ Copy a screenshot of an area to clipboard: Shift+Super+p
 
 Suspend: Ctr+Alt+Backspace
 
-#+BEGIN_SRC  sh
-systemctl suspend
+#+BEGIN_SRC sh
+  systemctl suspend
 #+END_SRC
 
 ** Change dock to the bottom and center
 
 #+BEGIN_SRC sh
+  sudo apt install dconf-tools
 
-sudo apt install dconf-tools
+  gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
+  gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+  gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
+  gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
+  gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
 
-gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
-gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
-gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
-gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
-
-# In case of messing up, run `gsettings reset [config]`
-
+  # In case of messing up, run `gsettings reset [config]`
 #+END_SRC
 
 ** Install GNU Emacs from Ubuntu Software Store
@@ -77,63 +75,57 @@ Previous Tap: Ctr+]
 ** Install and set up Git
 
 #+BEGIN_SRC  bash
+  sudo apt install git
+  git config --global user.email "quang.do.se@gmail.com"
+  git config --global user.name "Q Do"
 
-sudo apt install git
-git config --global user.email "quang.do.se@gmail.com"
-git config --global user.name "Q Do"
+  # Create rsa key
+  ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
 
-# Create rsa key
-ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
+  # Copy public key
+  cat ~/.ssh/id_rsa.pub | xclip -sel c
 
-# Copy public key
-cat ~/.ssh/id_rsa.pub | xclip -sel c
+  # If error 'sign_and_send_pubkey: signing failed: agent refused operation'
+  sudo chmod -R 400 ~/.ssh
+  ssh-add
 
-# If error 'sign_and_send_pubkey: signing failed: agent refused operation'
-sudo chmod -R 400 ~/.ssh
-ssh-add
-
-# Update to latest version
-sudo add-apt-repository -y ppa:git-core/ppa
-sudo apt-get update
-sudo apt-get install git -y
-
+  # Update to latest version
+  sudo add-apt-repository -y ppa:git-core/ppa
+  sudo apt-get update
+  sudo apt-get install git -y
 #+END_SRC
 
 ** TODO Install docker
 
 - check and update java version
 
-#+BEGIN_SRC 
+#+BEGIN_SRC sh
+  # Set up the repository
+  sudo apt update
+  sudo apt upgrade
+  sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+  sudo apt remove docker docker-engine docker.io containerd runc
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+  sudo apt-key fingerprint 0EBFCD88
+  sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-# Set up the repository
-sudo apt update
-sudo apt upgrade
-sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-sudo apt remove docker docker-engine docker.io containerd runc
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  # Install docker engine - community
+  sudo apt-get update
+  sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-# Install docker engine - community
-sudo apt-get update
-sudo apt-get install -y docker-ce docker-ce-cli containerd.io
-
-# Install docker-compose
-sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-sudo chmod +x /usr/local/bin/docker-compose
-
+  # Install docker-compose
+  sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+  sudo chmod +x /usr/local/bin/docker-compose
 #+END_SRC
 
 ** TODO Set up key mapping XKB
 
 #+BEGIN_SRC sh
+  # Get current configuration
+  xkbcomp $DISPLAY output.xkb
 
-# Get current configuration
-xkbcomp $DISPLAY output.xkb
-
-# See real live mapping
-xev
-
+  # See real live mapping
+  xev
 #+END_SRC
 
 Navigation:
@@ -173,57 +165,51 @@ Modifiers:
 
 ** Clean up
 
-#+BEGIN_SRC 
-rm -rf /var/lib/apt/lists/*
+#+BEGIN_SRC sh
+  rm -rf /var/lib/apt/lists/*
 #+END_SRC
 
 ** Enable Emacs keybinding in app
 
 #+BEGIN_SRC sh
+  gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 
-gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+  # switch back
+  gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
 
-# switch back
-gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
-
-# Or edit in
-/usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
-
+  # Or edit in
+  /usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
 #+END_SRC
 
 ** Add user
 
 #+BEGIN_SRC sh
+  # Add new user
+  sudo adduser [username]
 
-# Add new user
-sudo adduser [username]
+  # Add user to sudo group
+  usermod -aG sudo [username]
 
-# Add user to sudo group
-usermod -aG sudo [username]
+  # Enable root password
+  sudo passwd root
 
-# Enable root password
-sudo passwd root
-
-# Disable root account
-sudo passed -dl root
-
+  # Disable root account
+  sudo passed -dl root
 #+END_SRC
 
 ** Setting telex
 
 #+BEGIN_SRC  sh
+  # install unikey
+  sudo apt install ibus-unikey
 
-# install unikey
-sudo apt install ibus-unikey
+  ibus-daemon -Rd
 
-ibus-daemon -Rd
+  im-config
 
-im-config
+  # choose "Intelligent Input Bus" and restart
 
-# choose "Intelligent Input Bus" and restart
-
-# Go to "Region & Language" in Settings and search for Unikey
-
+  # Go to "Region & Language" in Settings and search for Unikey
 #+END_SRC
 
 ** Add start up command
@@ -234,42 +220,36 @@ im-config
 ** Check which graphic card is being used
 
 #+BEGIN_SRC sh
+  lspci -k | grep -A 2 -i "VGA"
 
-lspci -k | grep -A 2 -i "VGA"
-
-lshw -C video
-
+  lshw -C video
 #+END_SRC
 
 ** Install JDK
 
 #+BEGIN_SRC sh
-
-sudo apt install -y default-jdk
-
+  sudo apt install -y default-jdk
 #+END_SRC
 
 ** Google Chrome
 
 #+BEGIN_SRC sh
+  wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+  sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
 
-sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+  sudo apt update
 
-sudo apt update
+  sudo apt --only-upgrade install google-chrome-stable
 
-sudo apt --only-upgrade install google-chrome-stable
+  sudo apt install libnss3
 
-sudo apt install libnss3
+  # kill old hidden chrome processes
+  sudo pkill -15 google-chrome
+  sudo pkill -15 chrome
 
-# kill old hidden chrome processes
-sudo pkill -15 google-chrome
-sudo pkill -15 chrome
-
-# -15 is SIGTERM signal. Use below command a complete list
-kill -l
-
+  # -15 is SIGTERM signal. Use below command a complete list
+  kill -l
 #+END_SRC
 
 *** Turn off network cache that automatically adds =.com= and =www.= to url
@@ -286,3 +266,11 @@ kill -l
 - Go to =Tweaks= app
 - Click on =Extensions= tab
 - Enable =Hide Top Bar=
+
+** Install OpenConnect VPN
+
+#+BEGIN_SRC sh
+  sudo apt -y install openconnect
+
+  sudo openconnect -b [vpn.mydomain.com]
+#+END_SRC
