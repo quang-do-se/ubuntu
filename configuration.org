@@ -92,7 +92,7 @@ Previous Tap: Ctr+]
   # Update to latest version
   sudo add-apt-repository -y ppa:git-core/ppa
   sudo apt-get update
-  sudo apt-get install git -y
+  sudo apt-get install git git-core bash-completion -y
 #+END_SRC
 
 ** TODO Install docker
