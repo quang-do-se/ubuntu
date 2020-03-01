@@ -272,5 +272,5 @@ Modifiers:
 #+BEGIN_SRC sh
   sudo apt -y install openconnect
 
-  sudo openconnect -b [vpn.mydomain.com]
+  sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
 #+END_SRC
