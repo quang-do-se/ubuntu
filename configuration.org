@@ -270,3 +270,16 @@ Modifiers:
 
   sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
 #+END_SRC
+
+** Some utility tools
+
+#+BEGIN_SRC sh
+  # CPU temp and fan speed
+  sudo apt install lm-sensors
+
+  # Nice version of top
+  sudo npm install gtop -g
+
+  # Remove package
+  sudo apt remote --purge <package>
+#+END_SRC
