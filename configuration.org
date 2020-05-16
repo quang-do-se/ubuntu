@@ -186,6 +186,9 @@ Modifiers:
   # Add user to sudo group
   usermod -aG sudo [username]
 
+  # Delete user
+  sudo deluser --remove-home [username]
+
   # Enable root password
   sudo passwd root
 
@@ -282,4 +285,11 @@ Modifiers:
 
   # Remove package
   sudo apt remote --purge <package>
+#+END_SRC
+
+** Bluetooth update
+
+#+BEGIN_SRC sh
+  sudo add-apt-repository ppa:bluetooth/bluez
+  sudo apt install bluez
 #+END_SRC
