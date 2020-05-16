@@ -32,9 +32,8 @@
     - Move to workspace above: Super+[
     - Move to workspace below: Super+]
     - Copy a screenshot of an area to clipboard: Ctr+Print
-    - Suspend: Ctr+Super+Backspace
     - Launch terminal: Ctr+Super+T
-
+    - Suspend: Ctr+Super+Backspace
     #+BEGIN_SRC sh
       systemctl suspend
     #+END_SRC
