@@ -1,46 +1,50 @@
+#+STARTUP: showall hidestars indent
+#+TITLE: Ubuntu
+#+AUTHOR: Q Do
+
 * Starting Ubuntu 18.04.3 LTS
 
 ** Update/upgrade system
 
-   #+BEGIN_SRC  sh
+#+BEGIN_SRC  sh
      sudo apt update
 
      sudo apt upgrade
 
      sudo ubuntu-drivers autoinstall
-   #+END_SRC
+#+END_SRC
 
 ** Install a clip board manager and add shortcut for copy/paste
 
-   #+BEGIN_SRC  sh
+#+BEGIN_SRC  sh
      sudo apt install xclip
 
      sudo apt install copyq
-   #+END_SRC
+#+END_SRC
 
-   - In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Alt+Y*
+- In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Alt+Y*
 
 ** Change Keyboard shortcuts in Settings
 
 *** Recommend change all Ctr+Alt to Ctr+Super to avoid conflict in other applications
-    - Log out: Super+l
-    - Close window: Ctrl+Super+Escape
-    - Maximize window: Ctrl+Super+i
-    - Restore Window: Ctrl+Super+k
-    - View split on left: Ctrl+Super+j
-    - View split on right: Ctrl+Super+l
-    - Move to workspace above: Super+[
-    - Move to workspace below: Super+]
-    - Copy a screenshot of an area to clipboard: Ctr+Print
-    - Launch terminal: Ctr+Super+T
-    - Suspend: Ctr+Super+Backspace
-    #+BEGIN_SRC sh
+- Log out: Super+l
+- Close window: Ctrl+Super+Escape
+- Maximize window: Ctrl+Super+i
+- Restore Window: Ctrl+Super+k
+- View split on left: Ctrl+Super+j
+- View split on right: Ctrl+Super+l
+- Move to workspace above: Super+[
+- Move to workspace below: Super+]
+- Copy a screenshot of an area to clipboard: Ctr+Print
+- Launch terminal: Ctr+Super+T
+- Suspend: Ctr+Super+Backspace
+  #+BEGIN_SRC sh
       systemctl suspend
-    #+END_SRC
+  #+END_SRC
 
 ** Change dock to the bottom and center
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      sudo apt install dconf-tools
 
      gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -50,7 +54,7 @@
      gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
 
      # In case of messing up, run `gsettings reset [config]`
-   #+END_SRC
+#+END_SRC
 
 ** Install GNU Emacs from Ubuntu Software Store
 
@@ -60,18 +64,18 @@
 
 ** Change terminal shortcuts
 
-   Zoom In: Ctrl+=
-   Zoom Out: Ctrl+-
-   New Tab: Ctrl+T
-   Close Tab: Ctrl+W
-   Copy: Alt+W
-   Paste: Ctrl+Y
-   Next Tap: Ctrl+[
-   Previous Tap: Ctr+]
+Zoom In: Ctrl+=
+Zoom Out: Ctrl+-
+New Tab: Ctrl+T
+Close Tab: Ctrl+W
+Copy: Alt+W
+Paste: Ctrl+Y
+Next Tap: Ctrl+[
+Previous Tap: Ctr+]
 
 ** Install and set up Git
 
-   #+BEGIN_SRC  bash
+#+BEGIN_SRC  bash
      sudo apt install git
      git config --global user.email "quang.do.se@gmail.com"
      git config --global user.name "Q Do"
@@ -90,85 +94,92 @@
      sudo add-apt-repository -y ppa:git-core/ppa
      sudo apt-get update
      sudo apt-get install git git-core bash-completion -y
-   #+END_SRC
+#+END_SRC
 
 ** TODO Install docker
 
-   - check and update java version
+- check and update java version
 
-   #+BEGIN_SRC sh
-     # Set up the repository
-     sudo apt update
-     sudo apt upgrade
-     sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-     sudo apt remove docker docker-engine docker.io containerd runc
-     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-     sudo apt-key fingerprint 0EBFCD88
-     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+  #+BEGIN_SRC sh
+    # Set up the repository
+    sudo apt update
+    sudo apt upgrade
+    sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+    sudo apt remove docker docker-engine docker.io containerd runc
+    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+    sudo apt-key fingerprint 0EBFCD88
+    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-     # Install docker engine - community
-     sudo apt-get update
-     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    # Install docker engine - community
+    sudo apt-get update
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
 
-     # Install docker-compose
-     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-     sudo chmod +x /usr/local/bin/docker-compose
-   #+END_SRC
+    # Install docker-compose
+    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+    sudo chmod +x /usr/local/bin/docker-compose
+
+    # Add user to docker group to be able to run docker
+    sudo groupadd docker
+    sudo usermod -aG docker ${USER}
+
+    # login to the docker group
+    newgrp docker
+  #+END_SRC
 
 ** TODO Set up key mapping XKB
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      # Get current configuration
      xkbcomp $DISPLAY output.xkb
 
      # See real live mapping
      xev
-   #+END_SRC
+#+END_SRC
 
-   Navigation:
-   - up
-   - down
-   - left
-   - right
-   - page
-   - up
-   - page
-   - down
-   - home
-   - end
-   - Atl-F -> Alt-right
-   - Alt-B -> Alt-left
+Navigation:
+- up
+- down
+- left
+- right
+- page
+- up
+- page
+- down
+- home
+- end
+- Atl-F -> Alt-right
+- Alt-B -> Alt-left
 
-   Modifiers:
-   - Caplocks -> Control
-   - Enter -> Control
-   - Control-M -> Enter
+  Modifiers:
+  - Caplocks -> Control
+  - Enter -> Control
+  - Control-M -> Enter
 
-   - issue with xkb reset after suspend or wake up from suspense
+  - issue with xkb reset after suspend or wake up from suspense
 
-   - change xkb directly in `/usr/share/X11/xkb/`
+  - change xkb directly in `/usr/share/X11/xkb/`
 
 ** Open Terminal on start up
 
-   - Press the Super key (windows key).
-   - Type "Startup Applications"
-   - Click on the Startup Applications option
-   - Click "Add"
-   - In the "name" field, type Terminal
-   - In the "command" field, type "gnome-terminal --full-screen"
-   - Click "Add"
+- Press the Super key (windows key).
+- Type "Startup Applications"
+- Click on the Startup Applications option
+- Click "Add"
+- In the "name" field, type Terminal
+- In the "command" field, type "gnome-terminal --full-screen"
+- Click "Add"
 
 ** TODO Set up bash profile
 
 ** Clean up
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      rm -rf /var/lib/apt/lists/*
-   #+END_SRC
+#+END_SRC
 
 ** Enable Emacs keybinding in app
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 
      # switch back
@@ -176,11 +187,11 @@
 
      # Or edit in
      /usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
-   #+END_SRC
+#+END_SRC
 
 ** Add user
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      # Add new user
      sudo adduser [username]
 
@@ -195,11 +206,11 @@
 
      # Disable root account
      sudo passed -dl root
-   #+END_SRC
+#+END_SRC
 
 ** Setting telex
 
-   #+BEGIN_SRC  sh
+#+BEGIN_SRC  sh
      # install unikey
      sudo apt install ibus-unikey
 
@@ -210,30 +221,30 @@
      # choose "Intelligent Input Bus" and restart
 
      # Go to "Region & Language" in Settings and search for Unikey
-   #+END_SRC
+#+END_SRC
 
 ** Add start up command
 
-   # Search for 'Startup Applications Preferences' in Settings
-   # Add 'gnome-terminal --full-screen'
+# Search for 'Startup Applications Preferences' in Settings
+# Add 'gnome-terminal --full-screen'
 
 ** Check which graphic card is being used
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      lspci -k | grep -A 2 -i "VGA"
 
      lshw -C video
-   #+END_SRC
+#+END_SRC
 
 ** Install JDK
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      sudo apt install -y default-jdk
-   #+END_SRC
+#+END_SRC
 
 ** Google Chrome
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
      sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
@@ -250,34 +261,34 @@
 
      # -15 is SIGTERM signal. Use below command a complete list
      kill -l
-   #+END_SRC
+#+END_SRC
 
 *** Turn off network cache that automatically adds =.com= and =www.= to url
 
-    - Go to Chrome
-    - Click *F12*
-    - Go to *Network* tab
-    - Choose *Disable cache*
+- Go to Chrome
+- Click *F12*
+- Go to *Network* tab
+- Choose *Disable cache*
 
 ** Hide top bar
 
-   - Go to =Ubuntu Software= app
-   - Search =Hide Top Bar=
-   - Go to =Tweaks= app
-   - Click on =Extensions= tab
-   - Enable =Hide Top Bar=
+- Go to =Ubuntu Software= app
+- Search =Hide Top Bar=
+- Go to =Tweaks= app
+- Click on =Extensions= tab
+- Enable =Hide Top Bar=
 
 ** Install OpenConnect VPN
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      sudo apt -y install openconnect
 
      sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
-   #+END_SRC
+#+END_SRC
 
 ** Some utility tools
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      # CPU temp and fan speed
      sudo apt install lm-sensors
 
@@ -286,11 +297,11 @@
 
      # Remove package
      sudo apt remote --purge <package>
-   #+END_SRC
+#+END_SRC
 
 ** Bluetooth update
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
      sudo add-apt-repository ppa:bluetooth/bluez
      sudo apt install bluez
-   #+END_SRC
+#+END_SRC
