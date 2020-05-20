@@ -22,7 +22,7 @@
      sudo apt install copyq
 #+END_SRC
 
-- In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Alt+Y*
+- In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
 
 ** Change Keyboard shortcuts in Settings
 
@@ -96,11 +96,24 @@ Previous Tap: Ctr+]
      sudo apt-get install git git-core bash-completion -y
 #+END_SRC
 
-** TODO Install docker
+** Install Java JDK
 
-- check and update java version
+#+BEGIN_SRC sh
+  # Install default latest version
+  sudo apt install default-jdk
 
-  #+BEGIN_SRC sh
+  # Install specific version
+  sudo apt install openjdk-8-jdk
+
+  # Set Java 8 as default Java
+  sudo update-alternatives --set java \
+       $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
+
+#+END_SRC
+
+** Install docker
+
+#+BEGIN_SRC sh
     # Set up the repository
     sudo apt update
     sudo apt upgrade
@@ -124,16 +137,19 @@ Previous Tap: Ctr+]
 
     # login to the docker group
     newgrp docker
-  #+END_SRC
+#+END_SRC
 
-** TODO Set up key mapping XKB
+** Set up key mapping XKB
 
 #+BEGIN_SRC sh
-     # Get current configuration
-     xkbcomp $DISPLAY output.xkb
+  # Get current configuration
+  xkbcomp -xkb $DISPLAY output.xkb
 
-     # See real live mapping
-     xev
+  # After changing output.xkb, save and reload keyboard configurations
+  xkbcomp -w 0 output.xkb $DISPLAY
+
+  # See real live mapping
+  xev
 #+END_SRC
 
 Navigation:
@@ -169,7 +185,7 @@ Navigation:
 - In the "command" field, type "gnome-terminal --full-screen"
 - Click "Add"
 
-** TODO Set up bash profile
+** Set up bash profile
 
 ** Clean up
 
