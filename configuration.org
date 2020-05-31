@@ -58,8 +58,6 @@
 
 ** Install GNU Emacs from Ubuntu Software Store
 
-*** TODO setup emacs
-
 ** Change Desktop and Lockscreen background
 
 ** Change terminal shortcuts
@@ -137,6 +135,12 @@ Previous Tap: Ctr+]
 
     # login to the docker group
     newgrp docker
+#+END_SRC
+
+** Install autokey-gtk - great tool for key binding in Xorg
+
+#+BEGIN_SRC sh
+  sudo apt-get install autokey-gtk
 #+END_SRC
 
 ** Set up key mapping XKB
