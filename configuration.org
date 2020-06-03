@@ -309,14 +309,18 @@ Navigation:
 ** Some utility tools
 
 #+BEGIN_SRC sh
-     # CPU temp and fan speed
-     sudo apt install lm-sensors
+  # CPU temp and fan speed
+  sudo apt install lm-sensors
 
-     # Nice version of top
-     sudo npm install gtop -g
+  # Nice version of top
+  sudo npm install gtop -g
 
-     # Remove package
-     sudo apt remote --purge <package>
+  # Ulauncher for quick search
+  sudo add-apt-repository ppa:agornostal/ulaunche
+  sudo apt update && sudo apt install ulauncher
+
+  # Remove package
+  sudo apt remote --purge <package>
 #+END_SRC
 
 ** Bluetooth update
