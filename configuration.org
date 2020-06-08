@@ -90,8 +90,8 @@ Previous Tap: Ctr+]
 
      # Update to latest version
      sudo add-apt-repository -y ppa:git-core/ppa
-     sudo apt-get update
-     sudo apt-get install git git-core bash-completion -y
+     sudo apt update
+     sudo apt install git git-core bash-completion -y
 #+END_SRC
 
 ** Install Java JDK
@@ -122,8 +122,8 @@ Previous Tap: Ctr+]
     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
     # Install docker engine - community
-    sudo apt-get update
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    sudo apt update
+    sudo apt install -y docker-ce docker-ce-cli containerd.io
 
     # Install docker-compose
     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
@@ -140,7 +140,7 @@ Previous Tap: Ctr+]
 ** Install autokey-gtk - great tool for key binding in Xorg
 
 #+BEGIN_SRC sh
-  sudo apt-get install autokey-gtk
+  sudo apt install autokey-gtk
 #+END_SRC
 
 ** Set up key mapping XKB
