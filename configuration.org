@@ -341,6 +341,9 @@ Navigation:
 ** Some utility tools
 
 #+BEGIN_SRC sh
+  # PDF viewer
+  sudo apt install evince
+
   # CPU temp and fan speed
   sudo apt install lm-sensors
 
