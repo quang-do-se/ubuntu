@@ -344,6 +344,9 @@ Navigation:
   # PDF viewer
   sudo apt install evince
 
+  # tree ls
+  sudo apt install tree
+
   # CPU temp and fan speed
   sudo apt install lm-sensors
 
