@@ -27,7 +27,6 @@
 ** Change Keyboard shortcuts in Settings
 
 *** Recommend change all Ctr+Alt to Ctr+Super to avoid conflict in other applications
-- Log out: Super+l
 - Close window: Ctrl+Super+Escape
 - Maximize window: Ctrl+Super+i
 - Restore Window: Ctrl+Super+k
@@ -35,8 +34,11 @@
 - View split on right: Ctrl+Super+l
 - Move to workspace above: Super+[
 - Move to workspace below: Super+]
-- Copy a screenshot of an area to clipboard: Ctr+Print
+- Copy a screenshot of an window to clipboard: Ctr+Super+W
+- Copy a screenshot of an area to clipboard: Ctr+Super+C
+- Switch windows of an application: Super+Backlash
 - Launch terminal: Ctr+Super+T
+- Lock screen: Super+Backspace
 - Suspend: Ctr+Super+Backspace
   #+BEGIN_SRC sh
       systemctl suspend
