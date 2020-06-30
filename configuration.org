@@ -1,4 +1,4 @@
-#+STARTUP: showall hidestars indent
+#+STARTUP: showall hidestars
 #+TITLE: Ubuntu
 #+AUTHOR: Q Do
 
@@ -6,47 +6,47 @@
 
 ** Update/upgrade system
 
-#+BEGIN_SRC  sh
+   #+BEGIN_SRC  sh
      sudo apt update
 
      sudo apt upgrade
 
      sudo ubuntu-drivers autoinstall
-#+END_SRC
+   #+END_SRC
 
 ** Install a clip board manager and add shortcut for copy/paste
 
-#+BEGIN_SRC  sh
+   #+BEGIN_SRC  sh
      sudo apt install xclip
 
      sudo apt install copyq
-#+END_SRC
+   #+END_SRC
 
-- In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
+   - In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
 
 ** Change Keyboard shortcuts in Settings
 
 *** Recommend change all Ctr+Alt to Ctr+Super to avoid conflict in other applications
-- Close window: Ctrl+Super+Escape
-- Maximize window: Ctrl+Super+i
-- Restore Window: Ctrl+Super+k
-- View split on left: Ctrl+Super+j
-- View split on right: Ctrl+Super+l
-- Move to workspace above: Super+[
-- Move to workspace below: Super+]
-- Copy a screenshot of an window to clipboard: Ctr+Super+W
-- Copy a screenshot of an area to clipboard: Ctr+Super+C
-- Switch windows of an application: Super+Backlash
-- Launch terminal: Ctr+Super+T
-- Lock screen: Super+Backspace
-- Suspend: Ctr+Super+Backspace
-  #+BEGIN_SRC sh
-      systemctl suspend
-  #+END_SRC
+    - Close window: Ctrl+Super+Escape
+    - Maximize window: Ctrl+Super+i
+    - Restore Window: Ctrl+Super+k
+    - View split on left: Ctrl+Super+j
+    - View split on right: Ctrl+Super+l
+    - Move to workspace above: Super+[
+    - Move to workspace below: Super+]
+    - Copy a screenshot of an window to clipboard: Ctr+Super+W
+    - Copy a screenshot of an area to clipboard: Ctr+Super+C
+    - Switch windows of an application: Super+Backlash
+    - Launch terminal: Ctr+Super+T
+    - Lock screen: Super+Backspace
+    - Suspend: Ctr+Super+Backspace
+      #+BEGIN_SRC sh
+        systemctl suspend
+      #+END_SRC
 
 ** Change dock to the bottom and center
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      sudo apt install dconf-tools
 
      gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -56,58 +56,58 @@
      gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
 
      # In case of messing up, run `gsettings reset [config]`
-#+END_SRC
+   #+END_SRC
 
 ** Install GNU Emacs
-#+BEGIN_SRC sh
-  sudo apt update
+   #+BEGIN_SRC sh
+     sudo apt update
 
-  sudo apt install build-essential texinfo libx11-dev libxpm-dev\
-       libjpeg-dev libpng-dev libgif-dev libtiff-dev libncurses-dev\
-       libxpm-dev libgtk-3-dev libgnutls28-dev\
-       automake autoconf
+     sudo apt install build-essential texinfo libx11-dev libxpm-dev\
+          libjpeg-dev libpng-dev libgif-dev libtiff-dev libncurses-dev\
+          libxpm-dev libgtk-3-dev libgnutls28-dev\
+          automake autoconf
 
-  wget https://ftp.gnu.org/pub/gnu/emacs/emacs-26.3.tar.gz
+     wget https://ftp.gnu.org/pub/gnu/emacs/emacs-26.3.tar.gz
 
-  tar -zxvf emacs-26.3.tar.gz
+     tar -zxvf emacs-26.3.tar.gz
 
-  cd emacs-26.3
+     cd emacs-26.3
 
-  ./configure
+     ./configure
 
-  # If a package is missing during `./configure`,
-  # search for it using `apt search` or `apt-cache search` and install using `apt install`
-  sudo apt search 'libgnutls.*-dev'
-  sudo apt search 'libgtk.*-dev'
+     # If a package is missing during `./configure`,
+     # search for it using `apt search` or `apt-cache search` and install using `apt install`
+     sudo apt search 'libgnutls.*-dev'
+     sudo apt search 'libgtk.*-dev'
 
-  make
+     make
 
-  # if `make` completes successfully, install emacs
-  # By default, Emacs is installed in "/usr/local". To actually install files
-  sudo make install
+     # if `make` completes successfully, install emacs
+     # By default, Emacs is installed in "/usr/local". To actually install files
+     sudo make install
 
-  # Note that `make install` will overwrite "/usr/local/bin/emacs"
-  # and any Emacs Info files that might be in "/usr/local/share/info/"
+     # Note that `make install` will overwrite "/usr/local/bin/emacs"
+     # and any Emacs Info files that might be in "/usr/local/share/info/"
 
-  # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
-#+END_SRC
+     # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
+   #+END_SRC
 
 ** Change Desktop and Lockscreen background
 
 ** Change terminal shortcuts
 
-Zoom In: Ctrl+=
-Zoom Out: Ctrl+-
-New Tab: Ctrl+T
-Close Tab: Ctrl+W
-Copy: Alt+W
-Paste: Ctrl+Y
-Next Tap: Ctrl+[
-Previous Tap: Ctr+]
+   Zoom In: Ctrl+=
+   Zoom Out: Ctrl+-
+   New Tab: Ctrl+T
+   Close Tab: Ctrl+W
+   Copy: Alt+W
+   Paste: Ctrl+Y
+   Next Tap: Ctrl+[
+   Previous Tap: Ctr+]
 
 ** Install and set up Git
 
-#+BEGIN_SRC  bash
+   #+BEGIN_SRC  bash
      sudo apt install git
      git config --global user.email "quang.do.se@gmail.com"
      git config --global user.name "Q Do"
@@ -126,114 +126,113 @@ Previous Tap: Ctr+]
      sudo add-apt-repository -y ppa:git-core/ppa
      sudo apt update
      sudo apt install git git-core bash-completion -y
-#+END_SRC
+   #+END_SRC
 
 ** Install Java JDK
 
-#+BEGIN_SRC sh
-  # Install default latest version
-  sudo apt install default-jdk
+   #+BEGIN_SRC sh
+     # Install default latest version
+     sudo apt install default-jdk
 
-  # Install specific version
-  sudo apt install openjdk-8-jdk
+     # Install specific version
+     sudo apt install openjdk-8-jdk
 
-  # Set Java 8 as default Java
-  sudo update-alternatives --set java \
-       $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
-
-#+END_SRC
+     # Set Java 8 as default Java
+     sudo update-alternatives --set java \
+          $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
+   #+END_SRC
 
 ** Install docker
 
-#+BEGIN_SRC sh
-    # Set up the repository
-    sudo apt update
-    sudo apt upgrade
-    sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-    sudo apt remove docker docker-engine docker.io containerd runc
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-    sudo apt-key fingerprint 0EBFCD88
-    sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+   #+BEGIN_SRC sh
+     # Set up the repository
+     sudo apt update
+     sudo apt upgrade
+     sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+     sudo apt remove docker docker-engine docker.io containerd runc
+     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+     sudo apt-key fingerprint 0EBFCD88
+     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-    # Install docker engine - community
-    sudo apt update
-    sudo apt install -y docker-ce docker-ce-cli containerd.io
+     # Install docker engine - community
+     sudo apt update
+     sudo apt install -y docker-ce docker-ce-cli containerd.io
 
-    # Install docker-compose
-    sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-    sudo chmod +x /usr/local/bin/docker-compose
+     # Install docker-compose
+     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+     sudo chmod +x /usr/local/bin/docker-compose
 
-    # Add user to docker group to be able to run docker
-    sudo groupadd docker
-    sudo usermod -aG docker ${USER}
+     # Add user to docker group to be able to run docker
+     sudo groupadd docker
+     sudo usermod -aG docker ${USER}
 
-    # login to the docker group
-    newgrp docker
-#+END_SRC
+     # login to the docker group
+     newgrp docker
+   #+END_SRC
 
 ** Install autokey-gtk - great tool for key binding in Xorg
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
   sudo apt install autokey-gtk
-#+END_SRC
+   #+END_SRC
 
 ** Set up key mapping XKB
 
-#+BEGIN_SRC sh
-  # Get current configuration
-  xkbcomp -xkb $DISPLAY output.xkb
+   #+BEGIN_SRC sh
+     # Get current configuration
+     xkbcomp -xkb $DISPLAY output.xkb
 
-  # After changing output.xkb, save and reload keyboard configurations
-  xkbcomp -w 0 output.xkb $DISPLAY
+     # After changing output.xkb, save and reload keyboard configurations
+     xkbcomp -w 0 output.xkb $DISPLAY
 
-  # See real live mapping
-  xev
-#+END_SRC
+     # See real live mapping
+     xev
+   #+END_SRC
 
-Navigation:
-- up
-- down
-- left
-- right
-- page
-- up
-- page
-- down
-- home
-- end
-- Atl-F -> Alt-right
-- Alt-B -> Alt-left
+   Navigation:
+   - up
+   - down
+   - left
+   - right
+   - page
+   - up
+   - page
+   - down
+   - home
+   - end
+   - Atl-F -> Alt-right
+   - Alt-B -> Alt-left
 
-  Modifiers:
-  - Caplocks -> Control
-  - Enter -> Control
-  - Control-M -> Enter
+   Modifiers:
+   - Caplocks -> Control
+   - Enter -> Control
+   - Control-M -> Enter
 
-  - issue with xkb reset after suspend or wake up from suspense
+   - issue with xkb reset after suspend or wake up from suspense
 
-  - change xkb directly in `/usr/share/X11/xkb/`
+   - change xkb directly in `/usr/share/X11/xkb/`
 
 ** Open Terminal on start up
 
-- Press the Super key (windows key).
-- Type "Startup Applications"
-- Click on the Startup Applications option
-- Click "Add"
-- In the "name" field, type Terminal
-- In the "command" field, type "gnome-terminal --full-screen"
-- Click "Add"
+   - Press the Super key (windows key).
+   - Type "Startup Applications"
+   - Click on the Startup Applications option
+   - Click "Add"
+   - In the "name" field, type Terminal
+   - In the "command" field, type "gnome-terminal --full-screen"
+   - Click "Add"
 
 ** Set up bash profile
 
 ** Clean up
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      rm -rf /var/lib/apt/lists/*
-#+END_SRC
+   #+END_SRC
 
 ** Enable Emacs keybinding in app
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 
      # switch back
@@ -241,11 +240,11 @@ Navigation:
 
      # Or edit in
      /usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
-#+END_SRC
+   #+END_SRC
 
 ** Add user
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      # Add new user
      sudo adduser [username]
 
@@ -260,11 +259,11 @@ Navigation:
 
      # Disable root account
      sudo passed -dl root
-#+END_SRC
+   #+END_SRC
 
 ** Setting telex
 
-#+BEGIN_SRC  sh
+   #+BEGIN_SRC  sh
      # install unikey
      sudo apt install ibus-unikey
 
@@ -275,30 +274,30 @@ Navigation:
      # choose "Intelligent Input Bus" and restart
 
      # Go to "Region & Language" in Settings and search for Unikey
-#+END_SRC
+   #+END_SRC
 
 ** Add start up command
 
-# Search for 'Startup Applications Preferences' in Settings
-# Add 'gnome-terminal --full-screen'
+   # Search for 'Startup Applications Preferences' in Settings
+   # Add 'gnome-terminal --full-screen'
 
 ** Check which graphic card is being used
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      lspci -k | grep -A 2 -i "VGA"
 
      lshw -C video
-#+END_SRC
+   #+END_SRC
 
 ** Install JDK
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      sudo apt install -y default-jdk
-#+END_SRC
+   #+END_SRC
 
 ** Google Chrome
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
      sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
@@ -315,57 +314,57 @@ Navigation:
 
      # -15 is SIGTERM signal. Use below command a complete list
      kill -l
-#+END_SRC
+   #+END_SRC
 
 *** Turn off network cache that automatically adds =.com= and =www.= to url
 
-- Go to Chrome
-- Click *F12*
-- Go to *Network* tab
-- Choose *Disable cache*
+    - Go to Chrome
+    - Click *F12*
+    - Go to *Network* tab
+    - Choose *Disable cache*
 
 ** Hide top bar
 
-- Go to =Ubuntu Software= app
-- Search =Hide Top Bar=
-- Go to =Tweaks= app
-- Click on =Extensions= tab
-- Enable =Hide Top Bar=
+   - Go to =Ubuntu Software= app
+   - Search =Hide Top Bar=
+   - Go to =Tweaks= app
+   - Click on =Extensions= tab
+   - Enable =Hide Top Bar=
 
 ** Install OpenConnect VPN
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      sudo apt -y install openconnect
 
      sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
-#+END_SRC
+   #+END_SRC
 
 ** Some utility tools
 
-#+BEGIN_SRC sh
-  # PDF viewer
-  sudo apt install evince
+   #+BEGIN_SRC sh
+     # PDF viewer
+     sudo apt install evince
 
-  # tree ls
-  sudo apt install tree
+     # tree ls
+     sudo apt install tree
 
-  # CPU temp and fan speed
-  sudo apt install lm-sensors
+     # CPU temp and fan speed
+     sudo apt install lm-sensors
 
-  # Nice version of top
-  sudo npm install gtop -g
+     # Nice version of top
+     sudo npm install gtop -g
 
-  # Ulauncher for quick search
-  sudo add-apt-repository ppa:agornostal/ulaunche
-  sudo apt update && sudo apt install ulauncher
+     # Ulauncher for quick search
+     sudo add-apt-repository ppa:agornostal/ulaunche
+     sudo apt update && sudo apt install ulauncher
 
-  # Remove package
-  sudo apt remote --purge <package>
-#+END_SRC
+     # Remove package
+     sudo apt remote --purge <package>
+   #+END_SRC
 
 ** Bluetooth update
 
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
      sudo add-apt-repository ppa:bluetooth/bluez
      sudo apt install bluez
-#+END_SRC
+   #+END_SRC
