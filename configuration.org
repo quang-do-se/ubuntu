@@ -358,6 +358,11 @@
      sudo add-apt-repository ppa:agornostal/ulaunche
      sudo apt update && sudo apt install ulauncher
 
+     # Install music/video player
+     sudo add-apt-repository ppa:rvm/smplayer
+     sudo apt-get update
+     sudo apt-get install smplayer smplayer-themes smplayer-skins
+
      # Remove package
      sudo apt remote --purge <package>
    #+END_SRC
