@@ -173,7 +173,7 @@
 ** Install autokey-gtk - great tool for key binding in Xorg
 
    #+BEGIN_SRC sh
-  sudo apt install autokey-gtk
+     sudo apt install autokey-gtk
    #+END_SRC
 
 ** Set up key mapping XKB
@@ -365,6 +365,10 @@
 
      # Ag search
      sudo apt install silversearcher-ag
+
+     # Virtual Box
+     sudo apt install virtualbox
+     sudo apt install virtualbox-ext-pack
 
      # Remove package
      sudo apt remote --purge <package>
