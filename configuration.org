@@ -360,8 +360,8 @@
 
      # Install music/video player
      sudo add-apt-repository ppa:rvm/smplayer
-     sudo apt-get update
-     sudo apt-get install smplayer smplayer-themes smplayer-skins
+     sudo apt update
+     sudo apt install mpv smplayer smplayer-themes smplayer-skins
 
      # Ag search
      sudo apt install silversearcher-ag
@@ -371,7 +371,7 @@
      sudo apt install virtualbox-ext-pack
 
      # Remove package
-     sudo apt remote --purge <package>
+     sudo apt remove --purge <package>
    #+END_SRC
 
 ** Bluetooth update
