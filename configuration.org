@@ -345,30 +345,53 @@
      # PDF viewer
      sudo apt install evince
 
+
      # tree ls
      sudo apt install tree
+
 
      # CPU temp and fan speed
      sudo apt install lm-sensors
 
+
      # Nice version of top
      sudo npm install gtop -g
+
+
+     # Nice version of top
+     sudo apt install htop
+
 
      # Ulauncher for quick search
      sudo add-apt-repository ppa:agornostal/ulaunche
      sudo apt update && sudo apt install ulauncher
+
 
      # Install music/video player
      sudo add-apt-repository ppa:rvm/smplayer
      sudo apt update
      sudo apt install mpv smplayer smplayer-themes smplayer-skins
 
+
      # Ag search
      sudo apt install silversearcher-ag
 
+
      # Virtual Box
-     sudo apt install virtualbox
-     sudo apt install virtualbox-ext-pack
+     sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" >> /etc/apt/sources.list'
+
+     wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+
+     # Verify fingerprint
+     # gpg version 2 or later
+     gpg --dry-run --quiet --import --import-options import-show oracle_vbox_2016.asc | awk 'NR==2 {print $1}' | sed 's/.\{4\}/& /g'
+
+     sudo apt update
+     sudo apt install virtualbox-6.1
+
+     # Then download and install virtualbox extension package from the website https://www.virtualbox.org/wiki/
+
 
      # Remove package
      sudo apt remove --purge <package>
