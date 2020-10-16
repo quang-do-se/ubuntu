@@ -142,6 +142,12 @@
           $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
    #+END_SRC
 
+** Install Node.js
+
+   #+BEGIN_SRC sh
+     sudo apt install -y nodejs npm
+   #+END_SRC
+
 ** Install docker
 
    #+BEGIN_SRC sh
@@ -322,6 +328,14 @@
     - Click *F12*
     - Go to *Network* tab
     - Choose *Disable cache*
+
+** Firefox
+
+*** Adjust smooth scrolling
+    - Type =about:config= in address bar
+    - Set =mousewheel.min_line_scroll_amount= to 100. This will change the step of the scrolling
+    - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
+    - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
 
 ** Hide top bar
 
