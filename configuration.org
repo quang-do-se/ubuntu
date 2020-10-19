@@ -12,7 +12,7 @@
      sudo apt upgrade
 
      sudo ubuntu-drivers autoinstall
-   #+END_SRC
+   #+end_src
 
 ** Install a clip board manager and add shortcut for copy/paste
 
@@ -20,7 +20,7 @@
      sudo apt install xclip
 
      sudo apt install copyq
-   #+END_SRC
+   #+end_src
 
    - In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
 
@@ -40,11 +40,12 @@
     - Launch terminal: Ctr+Super+T
     - Lock screen: Super+Backspace
     - Suspend: Ctr+Super+Backspace
-      #+BEGIN_SRC sh
+      #+begin_src shell
         systemctl suspend
-      #+END_SRC
+      #+end_src
 
 ** Mouse: default natural scrolling
+
    - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
 
    #+BEGIN_SRC conf
@@ -55,13 +56,13 @@
        Driver "libinput"
        Option "NaturalScrolling" "true"
      EndSection
-   #+END_SRC
+   #+end_src
 
    - Note: Only work with Xorg
 
 ** Change dock to the bottom and center
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      sudo apt install dconf-tools
 
      gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
@@ -69,13 +70,14 @@
      gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
      gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
      gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
-   #+END_SRC
+   #+end_src
 
    - Note: In case of messing up, run =gsettings reset [config]=
    - Note: This can also be accessed in =dconf Editor= app
 
 ** Install GNU Emacs
-   #+BEGIN_SRC sh
+
+   #+begin_src shell
      sudo apt update
 
      sudo apt install build-essential texinfo libx11-dev libxpm-dev\
@@ -106,7 +108,7 @@
      # and any Emacs Info files that might be in "/usr/local/share/info/"
 
      # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
-   #+END_SRC
+   #+end_src
 
 ** Change Desktop and Lockscreen background
 
@@ -142,11 +144,11 @@
      sudo add-apt-repository -y ppa:git-core/ppa
      sudo apt update
      sudo apt install git git-core bash-completion -y
-   #+END_SRC
+   #+end_src
 
 ** Install Java JDK
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      # Install default latest version
      sudo apt install default-jdk
 
@@ -156,17 +158,17 @@
      # Set Java 8 as default Java
      sudo update-alternatives --set java \
           $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
-   #+END_SRC
+   #+end_src
 
 ** Install Node.js
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      sudo apt install -y nodejs npm
-   #+END_SRC
+   #+end_src
 
 ** Install docker
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      # Set up the repository
      sudo apt update
      sudo apt upgrade
@@ -190,17 +192,17 @@
 
      # login to the docker group
      newgrp docker
-   #+END_SRC
+   #+end_src
 
 ** Install autokey-gtk - great tool for key binding in Xorg
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      sudo apt install autokey-gtk
-   #+END_SRC
+   #+end_src
 
 ** Set up key mapping XKB
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      # Get current configuration
      xkbcomp -xkb $DISPLAY output.xkb
 
@@ -209,7 +211,7 @@
 
      # See real live mapping
      xev
-   #+END_SRC
+   #+end_src
 
    Navigation:
    - up
@@ -248,13 +250,13 @@
 
 ** Clean up
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      rm -rf /var/lib/apt/lists/*
-   #+END_SRC
+   #+end_src
 
 ** Enable Emacs keybinding in app
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
 
      # switch back
@@ -262,11 +264,11 @@
 
      # Or edit in
      /usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
-   #+END_SRC
+   #+end_src
 
 ** Add user
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      # Add new user
      sudo adduser [username]
 
@@ -281,7 +283,7 @@
 
      # Disable root account
      sudo passed -dl root
-   #+END_SRC
+   #+end_src
 
 ** Setting telex
 
@@ -296,7 +298,7 @@
      # choose "Intelligent Input Bus" and restart
 
      # Go to "Region & Language" in Settings and search for Unikey
-   #+END_SRC
+   #+end_src
 
 ** Add start up command
 
@@ -305,21 +307,21 @@
 
 ** Check which graphic card is being used
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      lspci -k | grep -A 2 -i "VGA"
 
      lshw -C video
-   #+END_SRC
+   #+end_src
 
 ** Install JDK
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      sudo apt install -y default-jdk
-   #+END_SRC
+   #+end_src
 
 ** Google Chrome
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
 
      sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
@@ -336,7 +338,7 @@
 
      # -15 is SIGTERM signal. Use below command a complete list
      kill -l
-   #+END_SRC
+   #+end_src
 
 *** Turn off network cache that automatically adds =.com= and =www.= to url
 
@@ -355,22 +357,22 @@
 
 ** Bluetooth update
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      sudo add-apt-repository ppa:bluetooth/bluez
      sudo apt install bluez
-   #+END_SRC
+   #+end_src
 
 ** Install OpenConnect VPN
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      sudo apt -y install openconnect
 
      sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
-   #+END_SRC
+   #+end_src
 
 ** Some utility tools
 
-   #+BEGIN_SRC sh
+   #+begin_src shell
      # PDF viewer
      sudo apt install evince
 
@@ -424,7 +426,7 @@
 
      # Remove package
      sudo apt remove --purge <package>
-   #+END_SRC
+   #+end_src
 
 ** Gnome Extensions
    - If =Extensions= app is not available, install it:
