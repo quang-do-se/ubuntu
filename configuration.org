@@ -57,7 +57,7 @@
      EndSection
    #+END_SRC
 
-   - Only work with Xorg
+   - Note: Only work with Xorg
 
 ** Change dock to the bottom and center
 
@@ -69,9 +69,10 @@
      gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
      gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
      gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
-
-     # In case of messing up, run `gsettings reset [config]`
    #+END_SRC
+
+   - Note: In case of messing up, run =gsettings reset [config]=
+   - Note: This can also be accessed in =dconf Editor= app
 
 ** Install GNU Emacs
    #+BEGIN_SRC sh
@@ -352,13 +353,12 @@
     - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
     - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
 
-** Hide top bar
+** Bluetooth update
 
-   - Go to =Ubuntu Software= app
-   - Search =Hide Top Bar=
-   - Go to =Tweaks= app
-   - Click on =Extensions= tab
-   - Enable =Hide Top Bar=
+   #+BEGIN_SRC sh
+     sudo add-apt-repository ppa:bluetooth/bluez
+     sudo apt install bluez
+   #+END_SRC
 
 ** Install OpenConnect VPN
 
@@ -426,9 +426,21 @@
      sudo apt remove --purge <package>
    #+END_SRC
 
-** Bluetooth update
+** Gnome Extensions
+   - If =Extensions= app is not available, install it:
 
-   #+BEGIN_SRC sh
-     sudo add-apt-repository ppa:bluetooth/bluez
-     sudo apt install bluez
-   #+END_SRC
+     #+begin_src shell
+      sudo apt install gnome-shell-extension-prefs
+     #+end_src
+
+   - Go to =Extensions= app
+   - Disable =Desktop Icons=
+
+** Hide top bar
+
+   #+begin_src shell
+      sudo apt install gnome-shell-extension-autohidetopbar
+   #+end_src
+
+   - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
+   - Enable =Hide Top Bar=
