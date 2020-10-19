@@ -2,7 +2,7 @@
 #+TITLE: Ubuntu
 #+AUTHOR: Q Do
 
-* Starting Ubuntu 18.04.3 LTS
+* Starting Ubuntu 20.04 LTS
 
 ** Update/upgrade system
 
@@ -43,6 +43,21 @@
       #+BEGIN_SRC sh
         systemctl suspend
       #+END_SRC
+
+** Mouse: default natural scrolling
+   - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
+
+   #+BEGIN_SRC conf
+     Section "InputClass"
+       Identifier "libinput pointer catchall"
+       MatchIsPointer "on"
+       MatchDevicePath "/dev/input/event*"
+       Driver "libinput"
+       Option "NaturalScrolling" "true"
+     EndSection
+   #+END_SRC
+
+   - Only work with Xorg
 
 ** Change dock to the bottom and center
 
