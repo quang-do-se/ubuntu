@@ -60,16 +60,20 @@
 
    - Note: Only work with Xorg
 
-** Change dock to the bottom and center
+*** Gnome tweaks
 
    #+begin_src shell
      sudo apt install dconf-tools
 
+     # Change dock to the bottom and center
      gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
      gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
      gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
      gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
      gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
+
+     # Change Nautilus navigation bar to path bar
+     gsettings set org.gnome.nautilus.preferences always-use-location-entry true
    #+end_src
 
    - Note: In case of messing up, run =gsettings reset [config]=
