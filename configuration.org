@@ -74,6 +74,7 @@
 
      # Change Nautilus navigation bar to path bar
      gsettings set org.gnome.nautilus.preferences always-use-location-entry true
+     gsettings set org.gnome.nautilus.preferences default-sort-order 'type'
    #+end_src
 
    - Note: In case of messing up, run =gsettings reset [config]=
