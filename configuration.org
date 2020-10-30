@@ -6,7 +6,7 @@
 
 ** Update/upgrade system
 
-   #+BEGIN_SRC  sh
+   #+begin_src  sh
      sudo apt update
 
      sudo apt upgrade
@@ -16,7 +16,7 @@
 
 ** Install a clip board manager and add shortcut for copy/paste
 
-   #+BEGIN_SRC  sh
+   #+begin_src  sh
      sudo apt install xclip
 
      sudo apt install copyq
@@ -48,7 +48,7 @@
 
    - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
 
-   #+BEGIN_SRC conf
+   #+begin_src conf
      Section "InputClass"
        Identifier "libinput pointer catchall"
        MatchIsPointer "on"
@@ -62,7 +62,7 @@
 
 *** Gnome tweaks
 
-   #+begin_src shell
+    #+begin_src shell
      sudo apt install dconf-tools
 
      # Change dock to the bottom and center
@@ -75,10 +75,10 @@
      # Change Nautilus navigation bar to path bar
      gsettings set org.gnome.nautilus.preferences always-use-location-entry true
      gsettings set org.gnome.nautilus.preferences default-sort-order 'type'
-   #+end_src
+    #+end_src
 
-   - Note: In case of messing up, run =gsettings reset [config]=
-   - Note: This can also be accessed in =dconf Editor= app
+    - Note: In case of messing up, run =gsettings reset [config]=
+    - Note: This can also be accessed in =dconf Editor= app
 
 ** Install GNU Emacs
 
@@ -130,7 +130,7 @@
 
 ** Install and set up Git
 
-   #+BEGIN_SRC  bash
+   #+begin_src  bash
      sudo apt install git
      git config --global user.email "quang.do.se@gmail.com"
      git config --global user.name "Q Do"
@@ -292,7 +292,7 @@
 
 ** Setting telex
 
-   #+BEGIN_SRC  sh
+   #+begin_src  sh
      # install unikey
      sudo apt install ibus-unikey
 
@@ -414,7 +414,9 @@
 
 
      # Virtual Box
-     sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian bionic contrib" >> /etc/apt/sources.list'
+     sudo apt remove --purge virtualbox-6.1
+
+     sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian <ubuntu-dist> contrib" >> /etc/apt/sources.list'
 
      wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
      wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
