@@ -436,7 +436,12 @@
 
 
      # pdflatex
-     sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+     sudo apt install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
+
+
+     # cheese - take photos and videos with your webcam
+     sudo apt install cheese
+
    #+end_src
 
 ** Gnome Extensions
