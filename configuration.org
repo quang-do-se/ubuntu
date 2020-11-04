@@ -433,6 +433,10 @@
 
      # Remove package
      sudo apt remove --purge <package>
+
+
+     # pdflatex
+     sudo apt-get install texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
    #+end_src
 
 ** Gnome Extensions
