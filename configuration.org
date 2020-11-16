@@ -406,7 +406,7 @@
      # Install music/video player
      sudo add-apt-repository ppa:rvm/smplayer
      sudo apt update
-     sudo apt install mpv smplayer smplayer-themes smplayer-skins
+     sudo apt install mpv mplayer smplayer smplayer-themes smplayer-skins
 
 
      # Ag search
