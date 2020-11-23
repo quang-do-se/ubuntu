@@ -442,6 +442,13 @@
      # cheese - take photos and videos with your webcam
      sudo apt install cheese
 
+
+     # Native antivirus
+     sudo apt install clamav
+
+
+     # exFAT drive support
+     sudo apt install exfat-fuse exfat-utils
    #+end_src
 
 ** Gnome Extensions
