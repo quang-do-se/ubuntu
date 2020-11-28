@@ -449,10 +449,6 @@
 
      # exFAT drive support
      sudo apt install exfat-fuse exfat-utils
-
-
-     # tty-clock - terminal clock ui
-     sudo apt install tty-clock
    #+end_src
 
 ** Gnome Extensions
