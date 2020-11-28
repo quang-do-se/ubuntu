@@ -7,7 +7,7 @@
 ** Change permission for home directory
 
    #+begin_src shell
-      sudo chmod -R o-rwx q
+     sudo chmod -R o-rwx "$HOME"
    #+end_src
 
 ** Update/upgrade system
