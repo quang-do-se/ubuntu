@@ -313,8 +313,8 @@
 
 ** Add start up command
 
-   # Search for 'Startup Applications Preferences' in Settings
-   # Add 'gnome-terminal --full-screen'
+   - Search for 'Startup Applications' app
+   - Add 'gnome-terminal --full-screen'
 
 ** Graphics card
 
