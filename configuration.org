@@ -253,7 +253,7 @@
    - Type "Startup Applications"
    - Click on the Startup Applications option
    - Click "Add"
-   - In the "name" field, type Terminal
+   - In the "name" field, type "Terminal"
    - In the "command" field, type "gnome-terminal --full-screen"
    - Click "Add"
 
@@ -310,11 +310,6 @@
 
      # Go to "Region & Language" in Settings and search for Unikey
    #+end_src
-
-** Add start up command
-
-   - Search for 'Startup Applications' app
-   - Add 'gnome-terminal --full-screen'
 
 ** Graphics card
 
