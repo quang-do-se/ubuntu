@@ -4,9 +4,15 @@
 
 * Starting Ubuntu 20.04 LTS
 
+** Change permission for home directory
+
+   #+begin_src shell
+      sudo chmod -R o-rwx q
+   #+end_src
+
 ** Update/upgrade system
 
-   #+begin_src  sh
+   #+begin_src shell
      sudo apt update
 
      sudo apt upgrade
@@ -16,7 +22,7 @@
 
 ** Install a clip board manager and add shortcut for copy/paste
 
-   #+begin_src  sh
+   #+begin_src shell
      sudo apt install xclip
 
      sudo apt install copyq
@@ -130,7 +136,7 @@
 
 ** Install and set up Git
 
-   #+begin_src  bash
+   #+begin_src shell
      sudo apt install git
      git config --global user.email "quang.do.se@gmail.com"
      git config --global user.name "Q Do"
@@ -292,7 +298,7 @@
 
 ** Setting telex
 
-   #+begin_src  sh
+   #+begin_src shell
      # install unikey
      sudo apt install ibus-unikey
 
