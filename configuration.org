@@ -316,13 +316,47 @@
    # Search for 'Startup Applications Preferences' in Settings
    # Add 'gnome-terminal --full-screen'
 
-** Check which graphic card is being used
+** Graphics card
 
-   #+begin_src shell
-     lspci -k | grep -A 2 -i "VGA"
+*** Check which graphics card is being used
 
-     lshw -C video
-   #+end_src
+    #+begin_src shell
+      lspci -k | grep -A 2 -i "VGA"
+
+      lshw -C video
+
+      prime-select query
+    #+end_src
+
+*** Install drivers
+
+    #+begin_src shell
+      # Update to latest drivers
+      sudo ubuntu-drivers autoinstall
+
+      sudo ubuntu-drivers devices
+
+      # Check which driver is recommended and install
+      sudo apt install <driver>
+    #+end_src
+
+*** Switch graphics card
+
+    #+begin_src shell
+      # Switch to Intel graphics card
+      sudo prime-select intel
+
+      # Switch to Nvidia graphics card
+      sudo prime-select nvidia
+
+      # Open Nvidia UI settings
+      nvidia-settings
+    #+end_src
+
+*** Uninstall Nvidia Drivers
+    #+begin_src sh
+      sudo apt-get remove --purge nvidia-* -y
+    #+end_src
 
 ** Install JDK
 
