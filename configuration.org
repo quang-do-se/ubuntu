@@ -50,6 +50,17 @@
         systemctl suspend
       #+end_src
 
+** Change terminal shortcuts
+
+   - Zoom In: Ctrl+=
+   - Zoom Out: Ctrl+-
+   - New Tab: Ctrl+T
+   - Close Tab: Ctrl+W
+   - Copy: Alt+W
+   - Paste: Ctrl+Y
+   - Next Tap: Ctrl+[
+   - Previous Tap: Ctr+]
+
 ** Mouse: default natural scrolling
 
    - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
@@ -120,19 +131,6 @@
 
      # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
    #+end_src
-
-** Change Desktop and Lockscreen background
-
-** Change terminal shortcuts
-
-   Zoom In: Ctrl+=
-   Zoom Out: Ctrl+-
-   New Tab: Ctrl+T
-   Close Tab: Ctrl+W
-   Copy: Alt+W
-   Paste: Ctrl+Y
-   Next Tap: Ctrl+[
-   Previous Tap: Ctr+]
 
 ** Install and set up Git
 
@@ -224,28 +222,27 @@
      xev
    #+end_src
 
-   Navigation:
-   - up
-   - down
-   - left
-   - right
-   - page
-   - up
-   - page
-   - down
-   - home
-   - end
-   - Atl-F -> Alt-right
-   - Alt-B -> Alt-left
+   - Navigation:
+     - up
+     - down
+     - left
+     - right
+     - page
+     - up
+     - page
+     - down
+     - home
+     - end
+     - Atl-F -> Alt-right
+     - Alt-B -> Alt-left
 
-   Modifiers:
-   - Caplocks -> Control
-   - Enter -> Control
-   - Control-M -> Enter
+   - Modifiers:
+     - Caplocks -> Control
+     - Enter -> Control
+     - Control-M -> Enter
 
-   - issue with xkb reset after suspend or wake up from suspense
-
-   - change xkb directly in `/usr/share/X11/xkb/`
+   - To avoid issue with xkb reset after suspend or wake up from suspense
+     - Change xkb directly in `/usr/share/X11/xkb/`
 
 ** Open Terminal on start up
 
@@ -256,8 +253,6 @@
    - In the "name" field, type "Terminal"
    - In the "command" field, type "gnome-terminal --full-screen"
    - Click "Add"
-
-** Set up bash profile
 
 ** Clean up
 
@@ -504,3 +499,7 @@
 
    - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
    - Enable =Hide Top Bar=
+
+** Change Desktop and Lockscreen background
+
+** Set up bash profile
