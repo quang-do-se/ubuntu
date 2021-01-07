@@ -432,6 +432,10 @@
      sudo apt install jq
 
 
+     # Image editor
+     sudo apt install gimp
+
+
      # Ulauncher for quick search
      sudo add-apt-repository ppa:agornostal/ulaunche
      sudo apt update && sudo apt install ulauncher
