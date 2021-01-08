@@ -503,6 +503,20 @@
      sudo apt autoremove
    #+end_src
 
+** Install nordvpn
+
+   #+begin_src shell
+     sh <(curl -sSf https://downloads.nordcdn.com/apps/linux/install.sh)
+
+     # Add nordvpn group to your system
+     sudo groupadd -r nordvpn
+
+     # Add the <user account> you sign into Linux to the nordvpn group
+     sudo gpasswd -a <username> nordvpn
+
+     sudo systemctl enable --now nordvpnd.service
+   #+end_src
+
 ** Gnome Extensions
    - If =Extensions= app is not available, install it:
 
