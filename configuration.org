@@ -515,6 +515,12 @@
      sudo gpasswd -a <username> nordvpn
 
      sudo systemctl enable --now nordvpnd.service
+
+     nordvpn set cybersec on
+
+     nordvpn set killswitch on
+
+     nordvpn set autoconnect on
    #+end_src
 
 ** Gnome Extensions
