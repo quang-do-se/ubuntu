@@ -360,7 +360,7 @@
 
      sudo apt update
 
-     sudo apt --only-upgrade install -y google-chrome-stable
+     sudo apt install -y google-chrome-stable # --only-upgrade for upgrade
 
      sudo apt install -y libnss3
 
@@ -519,6 +519,7 @@
       sudo apt install -y gnome-shell-extension-autohidetopbar
    #+end_src
 
+   - Restart
    - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
    - Enable =Hide Top Bar=
 
