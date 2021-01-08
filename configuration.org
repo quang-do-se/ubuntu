@@ -411,6 +411,10 @@
 ** Some utility tools
 
    #+begin_src shell
+     # Install locate
+     sudo apt install -y mlocate
+
+
      # Install python
      sudo apt install -y python3-pip
 
