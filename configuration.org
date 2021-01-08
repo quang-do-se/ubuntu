@@ -130,6 +130,9 @@
      # and any Emacs Info files that might be in "/usr/local/share/info/"
 
      # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
+
+
+     # Make sure desktop icon created at /usr/local/share/applications/emacs.desktop
    #+end_src
 
 ** Install and set up Git
