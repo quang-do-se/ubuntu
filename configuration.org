@@ -448,12 +448,13 @@
 
 
      # Ulauncher for quick search
-     sudo add-apt-repository ppa:agornostal/ulaunche
-     sudo apt update && sudo apt install -y ulauncher
+     sudo add-apt-repository -y ppa:agornostal/ulauncher
+     sudo apt update
+     sudo apt install -y ulauncher
 
 
      # Install music/video player
-     sudo add-apt-repository ppa:rvm/smplayer
+     sudo add-apt-repository -y ppa:rvm/smplayer
      sudo apt update
      sudo apt install -y mpv mplayer smplayer smplayer-themes smplayer-skins
 
@@ -480,10 +481,6 @@
      # Then download and install virtualbox extension package from the website https://www.virtualbox.org/wiki/
 
 
-     # Remove package
-     sudo apt remove --purge <package>
-
-
      # pdflatex
      sudo apt install -y texlive-latex-base texlive-fonts-recommended texlive-fonts-extra texlive-latex-extra
 
@@ -498,6 +495,10 @@
 
      # exFAT drive support
      sudo apt install -y exfat-fuse exfat-utils
+
+
+     # Remove package
+     sudo apt remove --purge <package>
    #+end_src
 
 ** Gnome Extensions
