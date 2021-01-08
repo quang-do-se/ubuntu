@@ -206,12 +206,6 @@
      newgrp docker
    #+end_src
 
-** Install autokey-gtk - great tool for key binding in Xorg
-
-   #+begin_src shell
-     sudo apt install -y autokey-gtk
-   #+end_src
-
 ** Set up key mapping XKB
 
    #+begin_src shell
@@ -411,6 +405,10 @@
 ** Some utility tools
 
    #+begin_src shell
+     # Install autokey-gtk - great tool for key binding in Xorg
+     sudo apt install -y autokey-gtk
+
+
      # Install locate
      sudo apt install -y mlocate
 
@@ -499,6 +497,10 @@
 
      # Remove package
      sudo apt remove --purge <package>
+
+
+     # Remove unused packages
+     sudo apt autoremove
    #+end_src
 
 ** Gnome Extensions
