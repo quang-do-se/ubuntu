@@ -10,6 +10,7 @@
      sudo chmod -R o-rwx "$HOME"
    #+end_src
 
+
 ** Update/upgrade system
 
    #+begin_src shell
@@ -20,43 +21,6 @@
      sudo ubuntu-drivers autoinstall
    #+end_src
 
-** Install GNU Emacs
-
-   #+begin_src shell
-     sudo apt update
-
-     sudo apt install -y build-essential texinfo libx11-dev libxpm-dev\
-          libjpeg-dev libpng-dev libgif-dev libtiff-dev libncurses-dev\
-          libxpm-dev libgtk-3-dev libgnutls28-dev\
-          automake autoconf
-
-     wget https://ftp.gnu.org/pub/gnu/emacs/emacs-27.1.tar.gz
-
-     tar -zxvf emacs-27.1.tar.gz
-
-     cd emacs-27.1
-
-     ./configure
-
-     # If a package is missing during `./configure`,
-     # search for it using `apt search` or `apt-cache search` and install using `apt install`
-     sudo apt search 'libgnutls.*-dev'
-     sudo apt search 'libgtk.*-dev'
-
-     make
-
-     # if `make` completes successfully, install emacs
-     # By default, Emacs is installed in "/usr/local". To actually install files
-     sudo make install
-
-     # Note that `make install` will overwrite "/usr/local/bin/emacs"
-     # and any Emacs Info files that might be in "/usr/local/share/info/"
-
-     # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
-
-
-     # Make sure desktop icon created at /usr/local/share/applications/emacs.desktop
-   #+end_src
 
 ** Gnome tweaks
 
@@ -128,21 +92,6 @@
       - Next Tap: Ctrl+[
       - Previous Tap: Ctr+]
 
-** Mouse: default natural scrolling
-
-   - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
-
-   #+begin_src conf
-     Section "InputClass"
-       Identifier "libinput pointer catchall"
-       MatchIsPointer "on"
-       MatchDevicePath "/dev/input/event*"
-       Driver "libinput"
-       Option "NaturalScrolling" "true"
-     EndSection
-   #+end_src
-
-   - Note: Only work with Xorg
 
 ** Install and set up Git
 
@@ -167,88 +116,78 @@
      sudo apt install -y git git-core bash-completion
    #+end_src
 
-** Install Java JDK
+
+** Set up bash profile with dotfiles
 
    #+begin_src shell
-     # Install default latest version
-     sudo apt install -y default-jdk
-
-     # Install specific version
-     sudo apt install -y openjdk-8-jdk
-
-     # Set Java 8 as default Java
-     sudo update-alternatives --set java \
-          $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
+     git clone git@github.com:qdo-se/dotfiles.git .
+     cd dotfiles
+     ./install.sh
    #+end_src
 
-** Install Node.js
+
+** Set up key mapping with autokey-gtk
 
    #+begin_src shell
-     sudo apt install -y nodejs npm
+     git clone git@github.com:qdo-se/autokey-gtk.git ~/.config/autokey
    #+end_src
 
-** Install docker
+
+** Install GNU Emacs
 
    #+begin_src shell
-     # Set up the repository
      sudo apt update
-     sudo apt upgrade
-     sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-     sudo apt remove docker docker-engine docker.io containerd runc
-     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-     sudo apt-key fingerprint 0EBFCD88
-     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-     # Install docker engine - community
-     sudo apt update
-     sudo apt install -y docker-ce docker-ce-cli containerd.io
+     sudo apt install -y build-essential texinfo libx11-dev libxpm-dev\
+          libjpeg-dev libpng-dev libgif-dev libtiff-dev libncurses-dev\
+          libxpm-dev libgtk-3-dev libgnutls28-dev\
+          automake autoconf
 
-     # Install docker-compose
-     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-     sudo chmod +x /usr/local/bin/docker-compose
+     wget https://ftp.gnu.org/pub/gnu/emacs/emacs-27.1.tar.gz
 
-     # Add user to docker group to be able to run docker
-     sudo groupadd docker
-     sudo usermod -aG docker ${USER}
+     tar -zxvf emacs-27.1.tar.gz
 
-     # login to the docker group
-     newgrp docker
+     cd emacs-27.1
+
+     ./configure
+
+     # If a package is missing during `./configure`,
+     # search for it using `apt search` or `apt-cache search` and install using `apt install`
+     sudo apt search 'libgnutls.*-dev'
+     sudo apt search 'libgtk.*-dev'
+
+     make
+
+     # if `make` completes successfully, install emacs
+     # By default, Emacs is installed in "/usr/local". To actually install files
+     sudo make install
+
+     # Note that `make install` will overwrite "/usr/local/bin/emacs"
+     # and any Emacs Info files that might be in "/usr/local/share/info/"
+
+     # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
+
+
+     # Make sure desktop icon created at /usr/local/share/applications/emacs.desktop
    #+end_src
 
-** Set up key mapping XKB
 
-   #+begin_src shell
-     # Get current configuration
-     xkbcomp -xkb $DISPLAY output.xkb
+** Mouse: default natural scrolling
 
-     # After changing output.xkb, save and reload keyboard configurations
-     xkbcomp -w 0 output.xkb $DISPLAY
+   - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
 
-     # See real live mapping
-     xev
+   #+begin_src conf
+     Section "InputClass"
+       Identifier "libinput pointer catchall"
+       MatchIsPointer "on"
+       MatchDevicePath "/dev/input/event*"
+       Driver "libinput"
+       Option "NaturalScrolling" "true"
+     EndSection
    #+end_src
 
-   - Navigation:
-     - up
-     - down
-     - left
-     - right
-     - page
-     - up
-     - page
-     - down
-     - home
-     - end
-     - Atl-F -> Alt-right
-     - Alt-B -> Alt-left
+   - Note: Only work with Xorg
 
-   - Modifiers:
-     - Caplocks -> Control
-     - Enter -> Control
-     - Control-M -> Enter
-
-   - To avoid issue with xkb reset after suspend or wake up from suspense
-     - Change xkb directly in `/usr/share/X11/xkb/`
 
 ** Open Terminal on start up
 
@@ -266,24 +205,6 @@
      rm -rf /var/lib/apt/lists/*
    #+end_src
 
-** Add user
-
-   #+begin_src shell
-     # Add new user
-     sudo adduser [username]
-
-     # Add user to sudo group
-     usermod -aG sudo [username]
-
-     # Delete user
-     sudo deluser --remove-home [username]
-
-     # Enable root password
-     sudo passwd root
-
-     # Disable root account
-     sudo passed -dl root
-   #+end_src
 
 ** Setting telex
 
@@ -299,6 +220,7 @@
 
      # Go to "Region & Language" in Settings and search for Unikey
    #+end_src
+
 
 ** Graphics card
 
@@ -376,34 +298,17 @@
     - Go to *Network* tab
     - Choose *Disable cache*
 
-** Firefox
-
-*** Adjust smooth scrolling
-    - Type =about:config= in address bar
-    - Set =mousewheel.min_line_scroll_amount= to 100. This will change the step of the scrolling
-    - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
-    - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
-
-** Bluetooth update
-
-   #+begin_src shell
-     sudo add-apt-repository ppa:bluetooth/bluez
-     sudo apt install -y bluez
-   #+end_src
-
-** Install OpenConnect VPN
-
-   #+begin_src shell
-     sudo apt install -y openconnect
-
-     sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
-   #+end_src
-
-** Some utility tools
+** Utility tools
 
    #+begin_src shell
      # Install autokey-gtk - great tool for key binding in Xorg
      sudo apt install -y autokey-gtk
+
+
+     # Ulauncher for quick search
+     sudo add-apt-repository -y ppa:agornostal/ulauncher
+     sudo apt update
+     sudo apt install -y ulauncher
 
 
      # Install locate
@@ -450,10 +355,14 @@
      sudo apt install -y gimp
 
 
-     # Ulauncher for quick search
-     sudo add-apt-repository -y ppa:agornostal/ulauncher
-     sudo apt update
-     sudo apt install -y ulauncher
+     # Install OpenConnect VPN
+     # Usage: sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
+     sudo apt install -y openconnect
+
+
+     # Bluetooth update if needed
+     sudo add-apt-repository ppa:bluetooth/bluez
+     sudo apt install -y bluez
 
 
      # Install music/video player
@@ -508,6 +417,80 @@
      sudo apt autoremove
    #+end_src
 
+
+** Gnome Extensions
+   - If =Extensions= app is not available, install it:
+
+     #+begin_src shell
+      sudo apt install -y gnome-shell-extension-prefs
+     #+end_src
+
+   - Go to =Extensions= app
+   - Disable =Desktop Icons=
+
+
+** Hide top bar
+
+   #+begin_src shell
+      sudo apt install -y gnome-shell-extension-autohidetopbar
+   #+end_src
+
+   - Restart
+   - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
+   - Enable =Hide Top Bar=
+
+
+** Install Java JDK
+
+   #+begin_src shell
+     # Install default latest version
+     sudo apt install -y default-jdk
+
+     # Install specific version
+     sudo apt install -y openjdk-8-jdk
+
+     # Set Java 8 as default Java
+     sudo update-alternatives --set java \
+          $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
+   #+end_src
+
+
+** Install Node.js
+
+   #+begin_src shell
+     sudo apt install -y nodejs npm
+   #+end_src
+
+
+** Install docker
+
+   #+begin_src shell
+     # Set up the repository
+     sudo apt update
+     sudo apt upgrade
+     sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+     sudo apt remove docker docker-engine docker.io containerd runc
+     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+     sudo apt-key fingerprint 0EBFCD88
+     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+     # Install docker engine - community
+     sudo apt update
+     sudo apt install -y docker-ce docker-ce-cli containerd.io
+
+     # Install docker-compose
+     sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+     sudo chmod +x /usr/local/bin/docker-compose
+
+     # Add user to docker group to be able to run docker
+     sudo groupadd docker
+     sudo usermod -aG docker ${USER}
+
+     # login to the docker group
+     newgrp docker
+   #+end_src
+
+
 ** Install nordvpn
 
    #+begin_src shell
@@ -526,28 +509,40 @@
      nordvpn set killswitch on
 
      nordvpn set autoconnect on
+
+     nordvpn login
+
+     nordvpn connect
    #+end_src
 
-** Gnome Extensions
-   - If =Extensions= app is not available, install it:
 
-     #+begin_src shell
-      sudo apt install -y gnome-shell-extension-prefs
-     #+end_src
-
-   - Go to =Extensions= app
-   - Disable =Desktop Icons=
-
-** Hide top bar
+** Add user
 
    #+begin_src shell
-      sudo apt install -y gnome-shell-extension-autohidetopbar
+     # Add new user
+     sudo adduser [username]
+
+     # Add user to sudo group
+     usermod -aG sudo [username]
+
+     # Delete user
+     sudo deluser --remove-home [username]
+
+     # Enable root password
+     sudo passwd root
+
+     # Disable root account
+     sudo passed -dl root
    #+end_src
 
-   - Restart
-   - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
-   - Enable =Hide Top Bar=
+
+** Firefox
+
+*** Adjust smooth scrolling
+    - Type =about:config= in address bar
+    - Set =mousewheel.min_line_scroll_amount= to 100. This will change the step of the scrolling
+    - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
+    - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
+
 
 ** Change Desktop and Lockscreen background
-
-** Set up bash profile
