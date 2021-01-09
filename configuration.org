@@ -30,6 +30,39 @@
 
    - In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
 
+** Gnome tweaks
+
+    #+begin_src shell
+      sudo apt install -y dconf-editor
+
+      # To export current dconf config
+      dconf dump / > ./dconf-q.conf
+
+      # To import dconf config
+      dconf load / < ./dconf-q.conf
+
+      # Or manually set value for a key
+      gsettings set <SCHEMA> <KEY> <VALUE>
+
+      # For example
+      gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
+    #+end_src
+
+    - Note: In case of messing up, run =gsettings reset [config]=
+    - Note: This can also be accessed in =dconf Editor= app
+
+** Enable Emacs keybinding in app
+
+   #+begin_src shell
+     gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
+
+     # switch back
+     gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
+
+     # Or edit in
+     /usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
+   #+end_src
+
 ** Change Keyboard shortcuts in Settings
 
 *** Recommend change all Ctr+Alt to Ctr+Super to avoid conflict in other applications
@@ -76,26 +109,6 @@
    #+end_src
 
    - Note: Only work with Xorg
-
-*** Gnome tweaks
-
-    #+begin_src shell
-     sudo apt install -y dconf-tools
-
-     # Change dock to the bottom and center
-     gsettings set org.gnome.shell.extensions.dash-to-dock extend-height false
-     gsettings set org.gnome.shell.extensions.dash-to-dock dock-position BOTTOM
-     gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode FIXED
-     gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 64
-     gsettings set org.gnome.shell.extensions.dash-to-dock unity-backlit-items true
-
-     # Change Nautilus navigation bar to path bar
-     gsettings set org.gnome.nautilus.preferences always-use-location-entry true
-     gsettings set org.gnome.nautilus.preferences default-sort-order 'type'
-    #+end_src
-
-    - Note: In case of messing up, run =gsettings reset [config]=
-    - Note: This can also be accessed in =dconf Editor= app
 
 ** Install GNU Emacs
 
@@ -255,18 +268,6 @@
 
    #+begin_src shell
      rm -rf /var/lib/apt/lists/*
-   #+end_src
-
-** Enable Emacs keybinding in app
-
-   #+begin_src shell
-     gsettings set org.gnome.desktop.interface gtk-key-theme "Emacs"
-
-     # switch back
-     gsettings set org.gnome.desktop.interface gtk-key-theme "Default"
-
-     # Or edit in
-     /usr/share/themes/Emacs/gtk-3.0/gtk-keys.css
    #+end_src
 
 ** Add user
