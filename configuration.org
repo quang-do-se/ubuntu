@@ -22,6 +22,30 @@
    #+end_src
 
 
+** Install and set up Git
+
+   #+begin_src shell
+     sudo apt install -y git
+     git config --global user.email "quang.do.se@gmail.com"
+     git config --global user.name "Q Do"
+
+     # Create rsa key
+     ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
+
+     # Copy public key
+     cat ~/.ssh/id_rsa.pub | xclip -sel c
+
+     # If error 'sign_and_send_pubkey: signing failed: agent refused operation'
+     sudo chmod -R 400 ~/.ssh
+     ssh-add
+
+     # Update to latest version
+     sudo add-apt-repository -y ppa:git-core/ppa
+     sudo apt update
+     sudo apt install -y git git-core bash-completion
+   #+end_src
+
+
 ** Gnome tweaks
 
    #+begin_src shell
@@ -91,30 +115,6 @@
       - Paste: Ctrl+Y
       - Next Tap: Ctrl+[
       - Previous Tap: Ctr+]
-
-
-** Install and set up Git
-
-   #+begin_src shell
-     sudo apt install -y git
-     git config --global user.email "quang.do.se@gmail.com"
-     git config --global user.name "Q Do"
-
-     # Create rsa key
-     ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
-
-     # Copy public key
-     cat ~/.ssh/id_rsa.pub | xclip -sel c
-
-     # If error 'sign_and_send_pubkey: signing failed: agent refused operation'
-     sudo chmod -R 400 ~/.ssh
-     ssh-add
-
-     # Update to latest version
-     sudo add-apt-repository -y ppa:git-core/ppa
-     sudo apt update
-     sudo apt install -y git git-core bash-completion
-   #+end_src
 
 
 ** Set up bash profile with dotfiles
