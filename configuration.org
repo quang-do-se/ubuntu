@@ -172,104 +172,6 @@
    #+end_src
 
 
-** Mouse: default natural scrolling
-
-   - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
-
-   #+begin_src conf
-     Section "InputClass"
-       Identifier "libinput pointer catchall"
-       MatchIsPointer "on"
-       MatchDevicePath "/dev/input/event*"
-       Driver "libinput"
-       Option "NaturalScrolling" "true"
-     EndSection
-   #+end_src
-
-   - Note: Only work with Xorg
-
-
-** Open Terminal on start up
-
-   - Press the Super key (windows key).
-   - Type "Startup Applications"
-   - Click on the Startup Applications option
-   - Click "Add"
-   - In the "name" field, type "Terminal"
-   - In the "command" field, type "gnome-terminal --full-screen"
-   - Click "Add"
-
-** Clean up
-
-   #+begin_src shell
-     rm -rf /var/lib/apt/lists/*
-   #+end_src
-
-
-** Setting telex
-
-   #+begin_src shell
-     # install unikey
-     sudo apt install -y ibus-unikey
-
-     ibus-daemon -Rd
-
-     im-config
-
-     # choose "Intelligent Input Bus" and restart
-
-     # Go to "Region & Language" in Settings and search for Unikey
-   #+end_src
-
-
-** Graphics card
-
-*** Check which graphics card is being used
-
-    #+begin_src shell
-      lspci -k | grep -A 2 -i "VGA"
-
-      lshw -C video
-
-      prime-select query
-    #+end_src
-
-*** Install drivers
-
-    #+begin_src shell
-      # Update to latest drivers
-      sudo ubuntu-drivers autoinstall
-
-      sudo ubuntu-drivers devices
-
-      # Check which driver is recommended and install
-      sudo apt install -y <driver>
-    #+end_src
-
-*** Switch graphics card
-
-    #+begin_src shell
-      # Switch to Intel graphics card
-      sudo prime-select intel
-
-      # Switch to Nvidia graphics card
-      sudo prime-select nvidia
-
-      # Open Nvidia UI settings
-      nvidia-settings
-    #+end_src
-
-*** Uninstall Nvidia Drivers
-    #+begin_src sh
-      sudo apt-get remove --purge nvidia-* -y
-    #+end_src
-
-** Install JDK
-
-   #+begin_src shell
-     sudo apt install -y default-jdk
-   #+end_src
-
 ** Google Chrome
 
    #+begin_src shell
@@ -297,6 +199,7 @@
     - Click *F12*
     - Go to *Network* tab
     - Choose *Disable cache*
+
 
 ** Utility tools
 
@@ -440,6 +343,50 @@
    - Enable =Hide Top Bar=
 
 
+** Mouse: default natural scrolling
+
+   - Add =Option "NaturalScrolling" "true"= to =/usr/share/X11/xorg.conf.d/40-libinput.conf= and reboot
+
+   #+begin_src conf
+     Section "InputClass"
+       Identifier "libinput pointer catchall"
+       MatchIsPointer "on"
+       MatchDevicePath "/dev/input/event*"
+       Driver "libinput"
+       Option "NaturalScrolling" "true"
+     EndSection
+   #+end_src
+
+   - Note: Only work with Xorg
+
+
+** Open Terminal on start up
+
+   - Press the Super key (windows key).
+   - Type "Startup Applications"
+   - Click on the Startup Applications option
+   - Click "Add"
+   - In the "name" field, type "Terminal"
+   - In the "command" field, type "gnome-terminal --full-screen"
+   - Click "Add"
+
+
+** Setting telex
+
+   #+begin_src shell
+     # install unikey
+     sudo apt install -y ibus-unikey
+
+     ibus-daemon -Rd
+
+     im-config
+
+     # choose "Intelligent Input Bus" and restart
+
+     # Go to "Region & Language" in Settings and search for Unikey
+   #+end_src
+
+
 ** Install Java JDK
 
    #+begin_src shell
@@ -536,6 +483,59 @@
    #+end_src
 
 
+** Change Desktop and Lockscreen background
+
+
+** Clean up
+
+   #+begin_src shell
+     rm -rf /var/lib/apt/lists/*
+   #+end_src
+
+
+** Graphics card
+
+*** Check which graphics card is being used
+
+    #+begin_src shell
+      lspci -k | grep -A 2 -i "VGA"
+
+      lshw -C video
+
+      prime-select query
+    #+end_src
+
+*** Install drivers
+
+    #+begin_src shell
+      # Update to latest drivers
+      sudo ubuntu-drivers autoinstall
+
+      sudo ubuntu-drivers devices
+
+      # Check which driver is recommended and install
+      sudo apt install -y <driver>
+    #+end_src
+
+*** Switch graphics card
+
+    #+begin_src shell
+      # Switch to Intel graphics card
+      sudo prime-select intel
+
+      # Switch to Nvidia graphics card
+      sudo prime-select nvidia
+
+      # Open Nvidia UI settings
+      nvidia-settings
+    #+end_src
+
+*** Uninstall Nvidia Drivers
+    #+begin_src sh
+      sudo apt-get remove --purge nvidia-* -y
+    #+end_src
+
+
 ** Firefox
 
 *** Adjust smooth scrolling
@@ -544,5 +544,3 @@
     - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
     - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
 
-
-** Change Desktop and Lockscreen background
