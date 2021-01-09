@@ -20,26 +20,54 @@
      sudo ubuntu-drivers autoinstall
    #+end_src
 
-** Install a clip board manager and add shortcut for copy/paste
+** Install GNU Emacs
 
    #+begin_src shell
-     sudo apt install -y xclip
+     sudo apt update
 
-     sudo apt install -y copyq
+     sudo apt install -y build-essential texinfo libx11-dev libxpm-dev\
+          libjpeg-dev libpng-dev libgif-dev libtiff-dev libncurses-dev\
+          libxpm-dev libgtk-3-dev libgnutls28-dev\
+          automake autoconf
+
+     wget https://ftp.gnu.org/pub/gnu/emacs/emacs-27.1.tar.gz
+
+     tar -zxvf emacs-27.1.tar.gz
+
+     cd emacs-27.1
+
+     ./configure
+
+     # If a package is missing during `./configure`,
+     # search for it using `apt search` or `apt-cache search` and install using `apt install`
+     sudo apt search 'libgnutls.*-dev'
+     sudo apt search 'libgtk.*-dev'
+
+     make
+
+     # if `make` completes successfully, install emacs
+     # By default, Emacs is installed in "/usr/local". To actually install files
+     sudo make install
+
+     # Note that `make install` will overwrite "/usr/local/bin/emacs"
+     # and any Emacs Info files that might be in "/usr/local/share/info/"
+
+     # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
+
+
+     # Make sure desktop icon created at /usr/local/share/applications/emacs.desktop
    #+end_src
-
-   - In =copyq=, change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
 
 ** Gnome tweaks
 
    #+begin_src shell
      sudo apt install -y dconf-editor
 
-     # To export current dconf config
-     dconf dump / > ./dconf-q.conf
-
      # To import dconf config
      dconf load / < ./dconf-q.conf
+
+     # To export current dconf config
+     dconf dump / > ./dconf-q.conf
 
      # Or manually set value for a key
      gsettings set <SCHEMA> <KEY> <VALUE>
@@ -114,44 +142,6 @@
    #+end_src
 
    - Note: Only work with Xorg
-
-** Install GNU Emacs
-
-   #+begin_src shell
-     sudo apt update
-
-     sudo apt install -y build-essential texinfo libx11-dev libxpm-dev\
-          libjpeg-dev libpng-dev libgif-dev libtiff-dev libncurses-dev\
-          libxpm-dev libgtk-3-dev libgnutls28-dev\
-          automake autoconf
-
-     wget https://ftp.gnu.org/pub/gnu/emacs/emacs-26.3.tar.gz
-
-     tar -zxvf emacs-26.3.tar.gz
-
-     cd emacs-26.3
-
-     ./configure
-
-     # If a package is missing during `./configure`,
-     # search for it using `apt search` or `apt-cache search` and install using `apt install`
-     sudo apt search 'libgnutls.*-dev'
-     sudo apt search 'libgtk.*-dev'
-
-     make
-
-     # if `make` completes successfully, install emacs
-     # By default, Emacs is installed in "/usr/local". To actually install files
-     sudo make install
-
-     # Note that `make install` will overwrite "/usr/local/bin/emacs"
-     # and any Emacs Info files that might be in "/usr/local/share/info/"
-
-     # For more info, https://www.gnu.org/software/emacs/manual/html_node/efaq/Installing-Emacs.html
-
-
-     # Make sure desktop icon created at /usr/local/share/applications/emacs.desktop
-   #+end_src
 
 ** Install and set up Git
 
@@ -417,6 +407,14 @@
 
      # Install locate
      sudo apt install -y mlocate
+
+
+     # Install a clip board manager
+     sudo apt install -y xclip
+
+
+     # Change shortcut for *Show/hide main window* to *Ctrl+Super+Y*
+     sudo apt install -y copyq
 
 
      # Install python
