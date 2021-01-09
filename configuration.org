@@ -2,7 +2,7 @@
 #+TITLE: Ubuntu
 #+AUTHOR: Q Do
 
-* Starting Ubuntu 20.04 LTS
+* Starting Ubuntu 20.04 Focal LTS
 
 ** Change permission for home directory
 
@@ -47,24 +47,33 @@
 
 
 ** Gnome tweaks
+   - Reload dconf
 
-   #+begin_src shell
-     sudo apt install -y dconf-editor
+     #+begin_src shell
+      git clone git@github.com:qdo-se/ubuntu.git .
 
-     # To import dconf config
-     dconf load / < ./dconf-q.conf
+      cd ubuntu
 
-     # To export current dconf config
-     dconf dump / > ./dconf-q.conf
+      # To import dconf config
+      dconf load / < ./dconf-q.conf
+     #+end_src
 
-     # Or manually set value for a key
-     gsettings set <SCHEMA> <KEY> <VALUE>
+   - Export dconf
 
-     # In case of messing up, reset conf
-     gsettings reset <SCHEMA> <KEY>
-   #+end_src
+     #+begin_src shell
+       sudo apt install -y dconf-editor
 
-   - Note: This can also be accessed in =dconf Editor= app
+       # To export current dconf config
+       dconf dump / > ./dconf-q.conf
+
+       # Or manually set value for a key
+       gsettings set <SCHEMA> <KEY> <VALUE>
+
+       # In case of messing up, reset conf
+       gsettings reset <SCHEMA> <KEY>
+     #+end_src
+
+     - Note: This can also be accessed in =dconf Editor= app
 
 *** Enable Emacs keybinding in app
 
@@ -543,4 +552,3 @@
     - Set =mousewheel.min_line_scroll_amount= to 100. This will change the step of the scrolling
     - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
     - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
-
