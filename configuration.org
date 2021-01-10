@@ -369,16 +369,13 @@
    - Note: Only work with Xorg
 
 
-** Open Terminal on start up
+** Add Startup applications
 
-   - Press the Super key (windows key).
-   - Type "Startup Applications"
-   - Click on the Startup Applications option
-   - Click "Add"
-   - In the "name" field, type "Terminal"
-   - In the "command" field, type "gnome-terminal --full-screen"
-   - Click "Add"
+   #+begin_src shell
+     cp -rf ./autostart ~/.config
+   #+end_src
 
+   - Or set it manually in "Startup Applications"
 
 ** Setting telex
 
