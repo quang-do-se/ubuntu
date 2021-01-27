@@ -377,19 +377,25 @@
 
    - Or set it manually in "Startup Applications"
 
-** Setting telex
+** Setting Vietnamese Unikey
 
    #+begin_src shell
-     # install unikey
-     sudo apt install -y ibus-unikey
+     # Install ibus and set ibus as default input method
+     sudo apt install -y ibus
+     im-config -n ibus
+
+     # install ibus-bamboo, which can be better than ibus-unikey
+     sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
+     sudo apt-get update
+     sudo apt-get install -y ibus-bamboo
+
+     ibus restart
 
      ibus-daemon -Rd
 
-     im-config
 
-     # choose "Intelligent Input Bus" and restart
-
-     # Go to "Region & Language" in Settings and search for Unikey
+     # Optional - this should be in dconf-q.conf
+     gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'BambooUs')]"
    #+end_src
 
 
