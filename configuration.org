@@ -213,6 +213,9 @@
 ** Utility tools
 
    #+begin_src shell
+     # Optional: switch off key repeat
+     # xset r off
+
      # Install autokey-gtk - great tool for key binding in Xorg
      sudo apt install -y autokey-gtk
 
