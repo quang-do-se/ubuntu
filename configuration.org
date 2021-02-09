@@ -453,7 +453,9 @@
 
      # Disable start on boot
      sudo systemctl disable docker.service
+     sudo systemctl disable docker.socket
      sudo systemctl disable containerd.service
+
 
      # # Enable start on boot
      # sudo systemctl enable docker.service
@@ -465,6 +467,9 @@
 
      # sudo service docker start
      # sudo service containerd start
+
+     # Confirm
+     systemctl list-unit-files  | grep -iE "(containerd|docker)"
    #+end_src
 
 
