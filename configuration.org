@@ -421,6 +421,12 @@
 
    #+begin_src shell
      sudo apt install -y nodejs npm
+
+     # Install node version manager
+     sudo npm install -g n
+
+     # Update npm
+     npm install -g npm@latest
    #+end_src
 
 
