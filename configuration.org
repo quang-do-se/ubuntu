@@ -427,6 +427,11 @@
 
      # Update npm
      npm install -g npm@latest
+
+
+     # Set npm global dir
+     mkdir ~/.npm-global
+     npm config set prefix '~/.npm-global'
    #+end_src
 
 
