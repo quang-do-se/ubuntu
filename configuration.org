@@ -420,18 +420,21 @@
 ** Install Node.js
 
    #+begin_src shell
+     # Make sure to set $NPM_CONFIG_PREFIX and $N_PREFIX
+
      sudo apt install -y nodejs npm
 
      # Install node version manager
-     sudo npm install -g n
+     npm install -g n
+
+     # Remove install nodejs and npm in /usr/local
+     sudo apt remove --purge -y nodejs npm
+
+     # Let n manage nodejs and npm
+     n lts
 
      # Update npm
      npm install -g npm@latest
-
-
-     # Set npm global dir
-     mkdir ~/.npm-global
-     npm config set prefix '~/.npm-global'
    #+end_src
 
 
