@@ -414,6 +414,9 @@
      # Set Java 8 as default Java
      sudo update-alternatives --set java \
           $(update-alternatives --list java | grep -E '\-8(\.[[:digit:]]*)?\-')
+
+     sudo update-alternatives --set javac \
+          $(update-alternatives --list javac | grep -E '\-8(\.[[:digit:]]*)?\-')
    #+end_src
 
 
@@ -509,6 +512,9 @@
      nordvpn login
 
      nordvpn connect
+
+     # Don't update package
+     sudo apt-mark hold nordvpn
    #+end_src
 
 
