@@ -476,6 +476,7 @@
 
      # # Enable start on boot
      # sudo systemctl enable docker.service
+     # sudo systemctl enable docker.socket
      # sudo systemctl enable containerd.service
 
      # # Start docker daemon
