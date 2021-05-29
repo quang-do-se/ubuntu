@@ -330,6 +330,12 @@
 
      # Remove unused packages
      sudo apt autoremove
+
+
+     # Install general package with dependencies
+     sudo dpkg -i package.deb
+     sudo apt -f install
+     sudo dpkg -i package.deb
    #+end_src
 
 
