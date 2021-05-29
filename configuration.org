@@ -479,15 +479,15 @@
      sudo groupadd docker
      sudo usermod -aG docker ${USER}
 
-     # login to the docker group
+     # login to the docker group. Reboot will fix the issue with group
      newgrp docker
 
 
 
      # # Enable start on boot
-     # sudo systemctl enable docker.service
-     # sudo systemctl enable docker.socket
-     # sudo systemctl enable containerd.service
+     sudo systemctl enable docker.service
+     sudo systemctl enable docker.socket
+     sudo systemctl enable containerd.service
 
 
 
