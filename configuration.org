@@ -457,8 +457,14 @@
      sudo apt install -y apt-transport-https ca-certificates curl gnupg-agent software-properties-common
      sudo apt remove docker docker-engine docker.io containerd runc
 
+     # Review key: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | gpg --dry-run --quiet --import --import-options import-show
      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+     # Confirm if key is added. If key is not added, add-apt-repository will fail
+     # Remove key: apt-key del 0EBFCD88
      sudo apt-key fingerprint 0EBFCD88
+
+     # Remove repository: add-apt-repository --rm
      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
      # Install docker engine - community
@@ -476,10 +482,6 @@
      # login to the docker group
      newgrp docker
 
-     # Disable start on boot
-     sudo systemctl disable docker.service
-     sudo systemctl disable docker.socket
-     sudo systemctl disable containerd.service
 
 
      # # Enable start on boot
@@ -487,12 +489,25 @@
      # sudo systemctl enable docker.socket
      # sudo systemctl enable containerd.service
 
+
+
+     # # Disable start on boot
+     # sudo systemctl disable docker.service
+     # sudo systemctl disable docker.socket
+     # sudo systemctl disable containerd.service
+
+
+
      # # Start docker daemon
      # sudo systemctl start docker
      # sudo systemctl start containerd
 
+
+
      # sudo service docker start
      # sudo service containerd start
+
+
 
      # Confirm
      systemctl list-unit-files  | grep -iE "(containerd|docker)"
