@@ -335,7 +335,7 @@
      # Install general package with dependencies
      sudo apt install <package.deb>
      # Or
-     sudo dpkg -i package.deb
+     sudo dpkg -i <package.deb>
      sudo apt --fix-broken install
    #+end_src
 
