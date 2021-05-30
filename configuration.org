@@ -563,13 +563,10 @@
    #+end_src
 
 
-** Change Desktop and Lockscreen background
-
-
 ** Clean up
 
    #+begin_src shell
-     rm -rf /var/lib/apt/lists/*
+     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
    #+end_src
 
 
@@ -616,6 +613,28 @@
     #+end_src
 
 
+** Check cron
+
+   #+begin_src sh
+     # Current user crontab
+     crontab -l
+
+     # crontab of a specific user
+     sudo crontab -u <user> -l
+
+     # All users crontabs, except root
+     sudo ls -al /var/spool/cron/crontabs
+
+     # root crontab
+     less /etc/crontab
+
+     ls -la /etc/cron.hourly
+     ls -la /etc/cron.daily
+     ls -la /etc/cron.weekly
+     ls -la /etc/cron.monthly
+   #+end_src
+
+
 ** Firefox
 
 *** Adjust smooth scrolling
@@ -623,3 +642,6 @@
     - Set =mousewheel.min_line_scroll_amount= to 100. This will change the step of the scrolling
     - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
     - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
+
+
+** Change Desktop and Lockscreen background
