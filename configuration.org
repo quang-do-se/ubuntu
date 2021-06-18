@@ -424,6 +424,10 @@
 
      sudo update-alternatives --set javac \
           $(update-alternatives --list javac | grep -E '\-8(\.[[:digit:]]*)?\-')
+
+     # OR
+     sudo update-alternatives --config java
+     sudo update-alternatives --config javac
    #+end_src
 
 
