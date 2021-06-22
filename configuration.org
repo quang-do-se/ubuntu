@@ -100,6 +100,8 @@
       - Restore Window: Ctrl+Super+k
       - View split on left: Ctrl+Super+j
       - View split on right: Ctrl+Super+l
+      - Move window one monitor to the left: Shift+Super+j
+      - Move window one monitor to the right: Shift+Super+l
       - Move to workspace above: Super+[
       - Move to workspace below: Super+]
       - Copy a screenshot of an window to clipboard: Ctr+Super+W
