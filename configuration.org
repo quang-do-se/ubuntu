@@ -651,3 +651,29 @@
 
 
 ** Change Desktop and Lockscreen background
+
+** Handle broken Linux Kernel
+
+   - Edit /etc/default/grub
+
+   #+begin_src conf
+     # Change these
+     GRUB_TIMEOUT_STYLE=menu
+     GRUB_CMDLINE_LINUX_DEFAULT="text"
+     GRUB_TERMINAL=console
+   #+end_src
+
+   #+begin_src sh
+     sudo update-grub
+   #+end_src
+
+   - Once in grub menu, choose 'Advanced options' and select kernel version that works
+   - Once booted, try to fix the broken kernel
+
+   #+begin_src sh
+     sudo apt update
+     sudo apt install --reinstall linux-image-<kernel-version>
+     sudo apt install --reinstall linux-modules-<kernel-version>
+
+     sudo ubuntu-drivers autoinstall
+   #+end_src
