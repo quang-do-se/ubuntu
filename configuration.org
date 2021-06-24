@@ -676,4 +676,13 @@
      sudo apt install --reinstall linux-modules-<kernel-version>
 
      sudo ubuntu-drivers autoinstall
+
+
+     # Worst case, remove the broken kernel
+     sudo apt-mark showauto 'linux-image-.*'
+     sudo apt purge linux-image-<kernel-version>
+     sudo apt purge linux-modules-<kernel-version>
+
+
+     # More info: https://help.ubuntu.com/community/RemoveOldKernels
    #+end_src
