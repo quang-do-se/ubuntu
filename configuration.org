@@ -659,8 +659,6 @@
    #+begin_src conf
      # Change these
      GRUB_TIMEOUT_STYLE=menu
-     GRUB_CMDLINE_LINUX_DEFAULT="text"
-     GRUB_TERMINAL=console
    #+end_src
 
    #+begin_src sh
