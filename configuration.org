@@ -471,7 +471,7 @@
      # Remove key: apt-key del 0EBFCD88
      sudo apt-key fingerprint 0EBFCD88
 
-     # Remove repository: add-apt-repository --rm
+     # Remove repository: add-apt-repository --remove
      sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
      # Install docker engine - community
