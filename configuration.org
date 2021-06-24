@@ -21,6 +21,16 @@
      sudo ubuntu-drivers autoinstall
    #+end_src
 
+   - Update grub to always display grub menu in /etc/default/grub
+
+   #+begin_src conf
+     # Change this
+     GRUB_TIMEOUT_STYLE=menu
+   #+end_src
+
+   #+begin_src sh
+     sudo update-grub
+   #+end_src
 
 ** Install and set up Git
 
@@ -657,7 +667,7 @@
    - Edit /etc/default/grub
 
    #+begin_src conf
-     # Change these
+     # Change this
      GRUB_TIMEOUT_STYLE=menu
    #+end_src
 
