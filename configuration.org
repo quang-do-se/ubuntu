@@ -713,6 +713,8 @@
 
      sudo chkrootkit
 
-     # Display TCP and UDP listening port with attached process
-     sudo netstat -tulpn
+     # Display all TCP and UDP ports with attached process
+     sudo netstat -peanut
+     # Or display listening ports only
+     sudo netstat -pelnut
    #+end_src
