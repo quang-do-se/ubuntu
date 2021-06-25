@@ -228,6 +228,11 @@
      # Optional: switch off key repeat
      # xset r off
 
+
+     # Chkrootkit and net-tools
+     sudo apt install -y chkrootkit net-tools
+
+
      # Install autokey-gtk - great tool for key binding in Xorg
      sudo apt install -y autokey-gtk
 
