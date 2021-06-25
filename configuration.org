@@ -709,7 +709,7 @@
 ** Scan system
 
    #+begin_src sh
-     sudo clamscan -r --bell -i --remove=yes /home/
+     sudo clamscan -r --bell -i --remove=yes /
 
      sudo chkrootkit
 
