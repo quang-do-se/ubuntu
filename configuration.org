@@ -520,6 +520,12 @@
 
 
 
+     # # Stop docker daemon
+     # sudo systemctl stop docker
+     # sudo systemctl stop containerd
+
+
+
      # # Start docker daemon
      # sudo systemctl start docker
      # sudo systemctl start containerd
@@ -698,4 +704,15 @@
 
 
      # More info: https://help.ubuntu.com/community/RemoveOldKernels
+   #+end_src
+
+** Scan system
+
+   #+begin_src sh
+     sudo clamscan -r --bell -i --remove=yes /home/
+
+     sudo chkrootkit
+
+     # Display TCP and UDP listening port with attached process
+     sudo netstat -tulpn
    #+end_src
