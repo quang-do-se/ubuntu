@@ -32,15 +32,16 @@
      sudo update-grub
    #+end_src
 
+
 ** Install and set up Git
 
    #+begin_src shell
      sudo apt install -y git
-     git config --global user.email "quang.do.se@gmail.com"
-     git config --global user.name "Q Do"
+     git config --global user.email "<email>"
+     git config --global user.name "<name>"
 
      # Create rsa key
-     ssh-keygen -t rsa -b 4096 -C "quang.do.se@gmail.com"
+     ssh-keygen -t rsa -b 4096 -C "<email>"
 
      # Copy public key
      cat ~/.ssh/id_rsa.pub | xclip -sel c
@@ -142,7 +143,9 @@
 
    #+begin_src shell
      git clone git@github.com:qdo-se/dotfiles.git .
+
      cd dotfiles
+
      ./install.sh
    #+end_src
 
@@ -308,7 +311,7 @@
 
 
      # Virtual Box
-     sudo apt remove --purge virtualbox-6.1
+     sudo apt purge virtualbox-6.1
 
      sudo sh -c 'echo "deb [arch=amd64] https://download.virtualbox.org/virtualbox/debian <ubuntu-dist> contrib" >> /etc/apt/sources.list'
 
@@ -342,7 +345,7 @@
 
 
      # Remove package
-     sudo apt remove --purge <package>
+     sudo apt purge <package>
 
 
      # Remove unused packages
@@ -413,8 +416,8 @@
 
      # install ibus-bamboo, which can be better than ibus-unikey
      sudo add-apt-repository ppa:bamboo-engine/ibus-bamboo
-     sudo apt-get update
-     sudo apt-get install -y ibus-bamboo
+     sudo apt update
+     sudo apt install -y ibus-bamboo
 
      ibus restart
 
@@ -459,7 +462,7 @@
      npm install -g n
 
      # Remove install nodejs and npm in /usr/local
-     sudo apt remove --purge -y nodejs npm
+     sudo apt purge -y nodejs npm
 
      # Let n manage nodejs and npm
      n lts
@@ -636,7 +639,7 @@
 
 *** Uninstall Nvidia Drivers
     #+begin_src sh
-      sudo apt-get remove --purge nvidia-* -y
+      sudo apt purge nvidia-* -y
     #+end_src
 
 
@@ -671,8 +674,6 @@
     - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
 
 
-** Change Desktop and Lockscreen background
-
 ** Handle broken Linux Kernel
 
    - Edit /etc/default/grub
@@ -706,6 +707,7 @@
      # More info: https://help.ubuntu.com/community/RemoveOldKernels
    #+end_src
 
+
 ** Scan system
 
    #+begin_src sh
@@ -717,4 +719,33 @@
      sudo netstat -peanut
      # Or display listening ports only
      sudo netstat -pelnut
+   #+end_src
+
+
+** Remove snap (optional)
+
+   #+begin_src sh
+     # List all packages
+     snap list
+
+
+     sudo snap remove --purge package-name
+
+     # Remove all packages in order
+     sudo snap remove snap-store
+     sudo snap remove gtk-common-themes
+     sudo snap remove gnome-3-34-1804
+     sudo snap remove core18
+     sudo snap remove snapd
+
+
+     # Remove snap
+     sudo apt purge snapd
+
+
+     rm -rf ~/snap
+     sudo rm -rf /snap
+     sudo rm -rf /var/snap
+     sudo rm -rf /var/lib/snapd
+     sudo rm -rf /var/cache/snapd/
    #+end_src
