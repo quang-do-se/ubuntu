@@ -747,7 +747,7 @@
       sudo reboot
     #+end_src
 
-*** Prevent kernel upgrade (Potentially unsafe)
+*** Prevent kernel upgrade (potentially unsafe)
 
     #+begin_src sh
       # Only do this when you know what you're doing
@@ -759,6 +759,25 @@
       sudo apt-mark unhold $(uname -r)
     #+end_src
 
+*** Set Grub default (optional)
+
+    - Get Grub menu entries
+
+      #+begin_src sh
+        grep gnulinux /boot/grub/grub.cfg | grep -iE "^[[:space:]]+menuentry" | cut -d "'" -f2
+      #+end_src
+
+    - Update /etc/default/grub
+
+      #+begin_src conf
+        # Change this to target menu entry
+        GRUB_DEFAULT="Advanced options for Ubuntu>Ubuntu, with Linux <kernel-version>"
+      #+end_src
+
+      #+begin_src sh
+        sudo update-grub
+        sudo reboot
+      #+end_src
 ** Scan system
 
    #+begin_src sh
