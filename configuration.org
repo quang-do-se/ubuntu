@@ -689,7 +689,7 @@
         sudo update-grub
       #+end_src
 
-    - Once in grub menu, choose *Advanced options* and select kernel version that works
+    - Once in grub menu, choose '*Advanced options'* and select kernel version that works
     - Once booted, try to fix the broken kernel
 
 *** Try to reinstall kernel
