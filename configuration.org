@@ -676,36 +676,46 @@
 
 ** Handle broken Linux Kernel
 
-   - Edit /etc/default/grub
+*** Enable Grub menu on boot
 
-   #+begin_src conf
-     # Change this
-     GRUB_TIMEOUT_STYLE=menu
-   #+end_src
+    - Edit /etc/default/grub
 
-   #+begin_src sh
-     sudo update-grub
-   #+end_src
+      #+begin_src conf
+        # Change this
+        GRUB_TIMEOUT_STYLE=menu
+      #+end_src
 
-   - Once in grub menu, choose 'Advanced options' and select kernel version that works
-   - Once booted, try to fix the broken kernel
+      #+begin_src sh
+        sudo update-grub
+      #+end_src
 
-   #+begin_src sh
-     sudo apt update
-     sudo apt install --reinstall linux-image-<kernel-version>
-     sudo apt install --reinstall linux-modules-<kernel-version>
+    - Once in grub menu, choose *Advanced options* and select kernel version that works
+    - Once booted, try to fix the broken kernel
 
-     sudo ubuntu-drivers autoinstall
+*** Try to reinstall kernel
 
-
-     # Worst case, remove the broken kernel
-     sudo apt-mark showauto 'linux-image-.*'
-     sudo apt purge linux-image-<kernel-version>
-     sudo apt purge linux-modules-<kernel-version>
+    #+begin_src sh
+      # Take a look to see which kernels are already installed
+      ls -al /lib/modules
+      dpkg --list | grep linux-image
 
 
-     # More info: https://help.ubuntu.com/community/RemoveOldKernels
-   #+end_src
+      # Trying to fix kernel
+      sudo apt update
+      sudo apt install --reinstall linux-image-<kernel-version>
+      sudo apt install --reinstall linux-modules-<kernel-version>
+
+      sudo ubuntu-drivers autoinstall
+
+
+      # Worst case, remove the broken kernel
+      sudo apt-mark showauto 'linux-image-.*'
+      sudo apt purge linux-image-<kernel-version>
+      sudo apt purge linux-modules-<kernel-version>
+
+
+      # More info: https://help.ubuntu.com/community/RemoveOldKernels
+    #+end_src
 
 
 ** Scan system
