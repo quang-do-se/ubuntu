@@ -687,6 +687,7 @@
 
       #+begin_src sh
         sudo update-grub
+        sudo reboot
       #+end_src
 
     - Once in grub menu, choose *Advanced options* and select kernel version that works
