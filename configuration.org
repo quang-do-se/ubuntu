@@ -22,7 +22,7 @@
    #+end_src
 
 
-** Update grub to always display grub menu
+** Enable Grub menu on boot
 
    - Backup
 
