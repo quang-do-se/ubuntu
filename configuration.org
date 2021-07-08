@@ -701,15 +701,17 @@
 
 
       # If you have no kernel to fallback, install a signed kernel
+      sudo apt update
       sudo apt-cache search linux-image | grep -i 'signed kernel image generic'
+
       sudo apt install linux-image-<kernel-version>-generic
       sudo apt install linux-headers-<kernel-version>-generic
       sudo apt install linux-modules-<kernel-version>-generic
 
 
       # Trying to fix current kernel
-      sudo apt update
       sudo apt install --reinstall linux-image-$(uname -r)
+      sudo apt install --reinstall linux-headers-$(uname -r)
       sudo apt install --reinstall linux-modules-$(uname -r)
 
       sudo ubuntu-drivers autoinstall
@@ -718,6 +720,7 @@
       # Worst case, remove the broken kernel
       sudo apt-mark showauto 'linux-image-.*'
       sudo apt purge linux-image-<kernel-version>
+      sudo apt purge linux-headers-<kernel-version>
       sudo apt purge linux-modules-<kernel-version>
 
 
