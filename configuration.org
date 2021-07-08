@@ -703,12 +703,14 @@
       # If you have no kernel to fallback, install a signed kernel
       sudo apt-cache search linux-image | grep -i 'signed kernel image generic'
       sudo apt install linux-image-<kernel-version>-generic
+      sudo apt install linux-headers-<kernel-version>-generic
+      sudo apt install linux-modules-<kernel-version>-generic
 
 
-      # Trying to fix kernel
+      # Trying to fix current kernel
       sudo apt update
-      sudo apt install --reinstall linux-image-<kernel-version>
-      sudo apt install --reinstall linux-modules-<kernel-version>
+      sudo apt install --reinstall linux-image-$(uname -r)
+      sudo apt install --reinstall linux-modules-$(uname -r)
 
       sudo ubuntu-drivers autoinstall
 
