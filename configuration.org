@@ -719,7 +719,6 @@
 
 
       # Worst case, remove the broken kernel
-      sudo apt-mark showauto 'linux-image-.*'
       sudo apt purge linux-image-<kernel-version>
       sudo apt purge linux-headers-<kernel-version>
       sudo apt purge linux-modules-<kernel-version>
