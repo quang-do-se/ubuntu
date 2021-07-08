@@ -725,6 +725,10 @@
 
 
       # More info: https://help.ubuntu.com/community/RemoveOldKernels
+
+
+      sudo update-grub
+      sudo reboot
     #+end_src
 
 
