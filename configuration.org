@@ -731,6 +731,17 @@
       sudo reboot
     #+end_src
 
+*** Prevent kernel upgrade (Potentially unsafe)
+
+    #+begin_src sh
+      # Only do this when you know what you're doing
+      # Holding kernel upgrade is usually not a good idea for security
+      sudo apt-mark hold $(uname -r)
+
+
+      # Unhold
+      sudo apt-mark unhold $(uname -r)
+   #+end_src
 
 ** Scan system
 
