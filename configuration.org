@@ -700,6 +700,11 @@
       dpkg --list | grep linux-image
 
 
+      # If you have no kernel to fallback, install a signed kernel
+      sudo apt-cache search linux-image | grep -i 'signed kernel image generic'
+      sudo apt install linux-image-<kernel-version>-generic
+
+
       # Trying to fix kernel
       sudo apt update
       sudo apt install --reinstall linux-image-<kernel-version>
