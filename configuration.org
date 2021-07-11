@@ -677,12 +677,9 @@
 
 ** Firefox
 
-*** Adjust smooth scrolling
+*** Adjust system font size
     - Type =about:config= in address bar
-    - Set =mousewheel.min_line_scroll_amount= to 100. This will change the step of the scrolling
-    - Set =general.smoothScroll.mouseWheel.durationMaxMS= to 600
-    - Set =general.smoothScroll.mouseWheel.durationMinMS= to 400
-
+    - Set =layout.css.devPixelsPerPx= to 1.20
 
 ** Handle broken Linux Kernel
 
