@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Exec=gnome-terminal --full-screen
+Exec=terminator --fullscreen --borderless --maximise
 Hidden=false
 NoDisplay=false
 X-GNOME-Autostart-enabled=true

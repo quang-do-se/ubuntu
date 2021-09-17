@@ -1,0 +1,42 @@
+[global_config]
+  geometry_hinting = True
+  title_transmit_bg_color = "#3465a4"
+  title_receive_bg_color = "#fce94f"
+  title_inactive_bg_color = "#eeeeec"
+  suppress_multiple_term_dialog = True
+  always_split_with_profile = True
+[keybindings]
+  zoom_in = <Primary>equal
+  zoom_out = <Primary>minus
+  new_tab = <Primary>t
+  go_up = <Alt>k
+  go_down = <Alt>j
+  go_left = <Alt>h
+  go_right = <Alt>l
+  split_horiz = <Primary>5
+  split_vert = <Primary>backslash
+  close_term = <Primary>w
+  close_window = <Primary><Super>Escape
+  next_tab = <Primary>bracketright
+  prev_tab = <Primary>bracketleft
+  layout_launcher = <Shift><Alt>l
+[profiles]
+  [[default]]
+    icon_bell = False
+    cursor_color = "#aaaaaa"
+    font = Monospace 24
+    foreground_color = "#ffffff"
+    show_titlebar = False
+    use_system_font = False
+    split_to_group = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+      profile = default
+      command = ""
+[plugins]
