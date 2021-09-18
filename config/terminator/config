@@ -16,6 +16,8 @@
   split_horiz = <Primary>5
   split_vert = <Primary>backslash
   close_term = <Primary>w
+  copy = <Alt>w
+  paste = <Primary>y
   close_window = <Primary><Super>Escape
   next_tab = <Primary>bracketright
   prev_tab = <Primary>bracketleft
@@ -24,9 +26,11 @@
   [[default]]
     icon_bell = False
     cursor_color = "#aaaaaa"
-    font = Monospace 24
+    font = Monospace 20
     foreground_color = "#ffffff"
     show_titlebar = False
+    scrollbar_position = hidden
+    scrollback_infinite = True
     use_system_font = False
     split_to_group = True
 [layouts]

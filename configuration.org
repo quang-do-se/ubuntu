@@ -820,17 +820,3 @@
      sudo rm -rf /var/lib/snapd
      sudo rm -rf /var/cache/snapd/
    #+end_src
-
-
-** Backup configurations
-
-   #+begin_src shell
-     # To export current dconf config
-     dconf dump / > ./dconf-q.conf
-
-     # Back up start-up scripts
-     rm -rf ./config/autostart && cp -r ~/.config/autostart/. ./config/autostart/
-
-     # Back up terminator configs
-     rm -rf ./config/terminator && cp -r ~/.config/terminator/. ./config/terminator/
-   #+end_src
