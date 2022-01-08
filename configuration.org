@@ -272,10 +272,6 @@
      sudo apt install -y copyq
 
 
-     # Install python
-     sudo apt install -y python3-pip
-
-
      # PDF viewer
      sudo apt install -y evince
 
@@ -819,4 +815,25 @@
      sudo rm -rf /var/snap
      sudo rm -rf /var/lib/snapd
      sudo rm -rf /var/cache/snapd/
+   #+end_src
+
+** Install python, pip and pipenv
+
+   #+begin_src shell
+     sudo apt install -y python3 python3-pip
+
+     # Install pipenv
+     python3 -m pip install --user pipenv
+
+
+     # If you have multiple Python version, use update-alternatives to manage them
+     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 1
+     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 2
+     sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 3
+
+     # List version
+     update-alternatives --list python
+
+     # Choose version
+     sudo update-alternatives --config python
    #+end_src
