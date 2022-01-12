@@ -22,27 +22,6 @@
    #+end_src
 
 
-** Enable Grub menu on boot
-
-   - Backup
-
-     #+begin_src sh
-       sudo cp /etc/default/grub /etc/default/grub.backup
-     #+end_src
-
-   - In /etc/default/grub
-
-     #+begin_src conf
-       # Change this
-       GRUB_TIMEOUT_STYLE=menu
-     #+end_src
-
-     #+begin_src sh
-       sudo update-grub
-       sudo reboot
-     #+end_src
-
-
 ** Install and set up Git
 
    #+begin_src shell
