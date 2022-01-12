@@ -1,8 +1,12 @@
 [global_config]
   geometry_hinting = True
+  window_state = fullscreen
+  borderless = True
+  scroll_tabbar = True
   title_transmit_bg_color = "#3465a4"
   title_receive_bg_color = "#fce94f"
   title_inactive_bg_color = "#eeeeec"
+  inactive_color_offset = 1.0
   suppress_multiple_term_dialog = True
   always_split_with_profile = True
 [keybindings]
@@ -19,6 +23,7 @@
   copy = <Alt>w
   paste = <Primary>y
   close_window = <Primary><Super>Escape
+  toggle_zoom = <Primary>1
   next_tab = <Primary>bracketright
   prev_tab = <Primary>bracketleft
   layout_launcher = <Shift><Alt>l
