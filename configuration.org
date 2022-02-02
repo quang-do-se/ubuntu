@@ -353,23 +353,33 @@
    - If =Extensions= app is not available, install it:
 
      #+begin_src shell
-      sudo apt install -y gnome-shell-extension-prefs
+      sudo apt install -y gnome-shell-extension-prefs gnome-shell-extensions
      #+end_src
 
-   - Go to =Extensions= app
-   - Disable =Desktop Icons=
+*** Hide Desktop Icons
 
+    - Go to =Extensions= app
+    - Disable =Desktop Icons=
 
-** Hide top bar
+*** Hide top bar
 
-   #+begin_src shell
+    #+begin_src shell
       sudo apt install -y gnome-shell-extension-autohidetopbar
-   #+end_src
+    #+end_src
 
-   - Restart
-   - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
-   - Enable =Hide Top Bar=
+    - Restart
+    - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
+    - Enable =Hide Top Bar=
 
+*** Hide app title bar
+
+    #+begin_src shell
+      sudo apt install -y gnome-shell-extension-pixelsaver
+    #+end_src
+
+    - Restart
+    - Go to =Extensions= app
+    - Enable =Pixel Saver=
 
 ** Mouse: default natural scrolling
 
