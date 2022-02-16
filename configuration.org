@@ -810,7 +810,7 @@
 
 *** Manage python versions
 
-   #+begin_src shell
+    #+begin_src shell
      sudo apt install -y python3
 
      # If you have multiple Python versions, use update-alternatives to manage them
@@ -827,7 +827,7 @@
 
      # Choose a version
      sudo update-alternatives --config python
-   #+end_src
+    #+end_src
 
 *** Install pipenv
 
@@ -843,3 +843,16 @@
       # Install and upgrade pip, pipenv
       python3 -m pip install --user --upgrade pip pipenv
     #+end_src
+
+** Recovery step for accident apt remove or purge
+
+   #+begin_src shell
+     # WARNING: NEVER use 'apt purge' or 'remove python'
+
+     # Check what were removed
+     less /var/log/apt/history.log
+
+     sudo apt install ubuntu-desktop
+
+     sudo apt --fix-broken install
+   #+end_src
