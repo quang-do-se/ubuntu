@@ -849,6 +849,12 @@
    #+begin_src shell
      # WARNING: NEVER use 'apt purge' or 'remove python'
 
+     # Ctrl+Alt+F3 to F6: Use virtual console/shell to recover
+
+     # Ctrl+Alt+F1: Login screen
+     # Ctrl+Alt+F2: GUI session
+
+
      # Check what were removed
      less /var/log/apt/history.log
 
