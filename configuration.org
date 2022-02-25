@@ -861,4 +861,8 @@
      sudo apt install ubuntu-desktop
 
      sudo apt --fix-broken install
+
+
+     # Check all installed packages
+     sudo apt list --installed
    #+end_src
