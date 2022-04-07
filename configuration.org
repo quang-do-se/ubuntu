@@ -325,6 +325,14 @@
      sudo apt install -y cheese
 
 
+     # OBD - Open Broadcaster Software - Screen Recording
+     # https://obsproject.com/wiki/install-instructions#linux
+     sudo apt install v4l2loopback-dkms
+     sudo add-apt-repository ppa:obsproject/obs-studio
+     sudo apt update
+     sudo apt install obs-studio
+
+
      # Native antivirus
      sudo apt install -y clamav
 
