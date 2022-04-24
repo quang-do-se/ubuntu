@@ -443,6 +443,7 @@
      sudo apt install -y default-jdk
 
      # Install specific version
+     sudo apt-cache search openjdk | grep 8
      sudo apt install -y openjdk-8-jdk
 
      # Set Java 8 as default Java
