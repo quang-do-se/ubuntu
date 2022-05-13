@@ -341,6 +341,13 @@
      sudo apt install -y exfat-fuse exfat-utils
 
 
+     # JDK visual tool for Java
+     # Manually install to get latest version: VisualVM, GraalVM
+     sudo apt install visualvm
+
+
+
+
      # Remove package
      sudo apt purge <package>
 
