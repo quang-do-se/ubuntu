@@ -357,6 +357,8 @@
      sudo apt install postgresql-client
 
 
+     # pandoc
+     sudo apt install pandoc
 
 
      # Remove package
