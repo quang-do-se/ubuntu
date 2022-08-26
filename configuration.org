@@ -381,7 +381,7 @@
    - If =Extensions= app is not available, install it:
 
      #+begin_src shell
-      sudo apt install -y gnome-shell-extension-prefs gnome-shell-extensions
+      sudo apt install -y gnome-shell-extension-prefs gnome-shell-extensions gnome-shell-extension-manager gnome-tweaks
      #+end_src
 
 *** Hide Desktop Icons
@@ -391,13 +391,8 @@
 
 *** Hide top bar
 
-    #+begin_src shell
-      sudo apt install -y gnome-shell-extension-autohidetopbar
-    #+end_src
-
-    - Restart
-    - Go to =Extensions= app or =Tweaks= app under =Extensions= tab
-    - Enable =Hide Top Bar=
+    - Go to =Extension Manager= app
+    - Browse "Hide Top Bar" and install
 
 *** Hide app title bar
 
