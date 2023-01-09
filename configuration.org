@@ -450,6 +450,14 @@
      gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'BambooUs')]"
    #+end_src
 
+   - Disable Emoji and Unicode shortcut:
+
+   #+begin_src shell
+     ibus-setup
+
+     # Then go to "Emoji" tab, delete "Keyboard Shortcuts" for "Emoji annotation" and "Unicode code point".
+   #+end_src
+
 
 ** Install Java JDK
 
