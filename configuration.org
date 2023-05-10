@@ -796,6 +796,7 @@
         sudo update-grub
         sudo reboot
       #+end_src
+
 ** Scan system
 
    #+begin_src sh
