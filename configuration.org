@@ -806,8 +806,11 @@
 
      # Display all TCP and UDP ports with attached process
      sudo netstat -peanut
+
      # Or display listening ports only
      sudo netstat -pelnut
+
+     # Use `sudo systemctl stop <service>` and `sudo systemctl disable <service>` if needed
    #+end_src
 
 
