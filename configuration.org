@@ -810,7 +810,11 @@
      # Or display listening ports only
      sudo netstat -pelnut
 
+     # Alternative for netstat
+     ss -tap
+
      # Use `sudo systemctl stop <service>` and `sudo systemctl disable <service>` if needed
+
    #+end_src
 
 
