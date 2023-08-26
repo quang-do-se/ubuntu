@@ -914,17 +914,39 @@
 
      python3 -m pip install --upgrade --user qmk
 
-     git clone git@github.com:qmk/qmk_firmware.git
+
+
+     # Set up default configs
+     qmk config user.keymap=quang-do-se
+     qmk config user.qmk_home=/home/q/Desktop/qmk_firmware/
+
+
+     # Clone fork repository
+     git clone git@github.com:quang-do-se/qmk_firmware.git
 
      cd qmk_firmware
 
+     git remote add upstream git@github.com:qmk/qmk_firmware.git
+
+     git fetch upstream
+
+     # If the fork is stale, sync with uptstream:
+     # https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
+
+
      qmk setup
 
-     make git-submodule
 
      git submodule update --init --recursive
 
-     # Make sure lib/chibios is not empty
+     # IMPORTANT: Make sure all submodules are not empty
+     git submodule foreach
+     git submodule foreach 'git status'
+     git submodule foreach 'git checkout qmk-master'
+
+
+     ./util/qmk_install.sh
+
 
      # Try to compile a keyboard to test
      qmk compile -kb mode/m75h -km default
