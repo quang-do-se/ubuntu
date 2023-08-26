@@ -906,3 +906,26 @@
      # Check all installed packages
      sudo apt list --installed
    #+end_src
+
+** QMK
+
+   #+begin_src shell
+     sudo apt install -y git python3-pip
+
+     python3 -m pip install --upgrade --user qmk
+
+     git clone git@github.com:qmk/qmk_firmware.git
+
+     cd qmk_firmware
+
+     qmk setup
+
+     make git-submodule
+
+     git submodule update --init --recursive
+
+     # Make sure lib/chibios is not empty
+
+     # Try to compile a keyboard to test
+     qmk compile -kb mode/m75h -km default
+   #+end_src
