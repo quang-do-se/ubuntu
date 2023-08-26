@@ -940,6 +940,7 @@
      git submodule update --init --recursive
 
      # IMPORTANT: Make sure all submodules are not empty
+     git submodule status
      git submodule foreach
      git submodule foreach 'git status'
      git submodule foreach 'git checkout qmk-master'
@@ -950,4 +951,7 @@
 
      # Try to compile a keyboard to test
      qmk compile -kb mode/m75h -km default
+
+     # Create a new keymap
+     qmk new-keymap -kb <keyboard_name>
    #+end_src
