@@ -950,7 +950,7 @@
 
 
      # Try to compile a keyboard to test
-     qmk compile -kb mode/m75h -km default
+     qmk compile -kb mode/m256wh -km default
 
      # Create a new keymap
      qmk new-keymap -kb <keyboard_name>
