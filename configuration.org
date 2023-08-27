@@ -955,3 +955,22 @@
      # Create a new keymap
      qmk new-keymap -kb <keyboard_name>
    #+end_src
+
+*** Via
+
+    - Open Chrome browswer
+    - Go to https://usevia.app/
+    - Open `chrome://device-log/` if there is any issue
+    - If there is FILE_ERROR_ACCESS_DENIED, fix the permission:
+      #+begin_src shell
+        # Change permission of device on the system
+        ls -al /dev/hidraw4
+
+        # Change permission to allow Chrome browser to access the device
+        sudo chmod a+rw /dev/hidraw4
+
+        # Remove permission after finished
+        sudo chmod go-rw /dev/hidraw4
+      #+end_src
+
+    - Via supports up to 4 layers
