@@ -956,7 +956,7 @@
      qmk new-keymap -kb <keyboard_name>
    #+end_src
 
-*** Via
+*** VIA
 
     - Open Chrome browswer
     - Go to https://usevia.app/
@@ -973,4 +973,4 @@
         sudo chmod go-rw /dev/hidraw4
       #+end_src
 
-    - Via supports up to 4 layers
+    - VIA supports up to 4 layers
