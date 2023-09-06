@@ -22,7 +22,7 @@
   close_term = <Primary>w
   copy = <Alt>w
   paste = <Primary>y
-  close_window = <Primary><Super>Escape
+  close_window = <Super>q
   toggle_zoom = <Primary>1
   next_tab = <Primary>bracketright
   prev_tab = <Primary>bracketleft
