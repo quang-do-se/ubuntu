@@ -95,7 +95,7 @@
 
     - Recommend change all Ctr+Alt to Ctr+Super to avoid conflict in other applications
 
-      - Close window: Ctrl+Super+Escape
+      - Close window: Super+Q
 
       - Maximize window: Ctrl+Super+i
       - Restore Window: Ctrl+Super+k
@@ -115,7 +115,7 @@
 
       - Switch windows of an application: Super+Backlash
       - Launch terminal: Ctr+Super+T
-      - Lock screen: Super+Backspace
+      - Lock screen: Ctrl+Super+Q
       - Suspend: Ctr+Super+Backspace
         #+begin_src shell
           systemctl suspend
