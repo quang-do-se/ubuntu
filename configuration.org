@@ -286,6 +286,10 @@
      sudo apt install -y gimp
 
 
+     # Screen recording
+     sudo apt install -y kazam
+
+
      # Install OpenConnect VPN
      # Usage: sudo openconnect -b [vpn.mydomain.com] -u [username] --authgroup [AdminVPN]
      sudo apt install -y openconnect
