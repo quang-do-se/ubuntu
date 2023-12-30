@@ -936,7 +936,7 @@
 
      # If the fork is stale, sync with uptstream:
      # https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/syncing-a-fork
-
+     git merge upstream/master
 
      qmk setup
 
