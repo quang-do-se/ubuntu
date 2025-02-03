@@ -13,6 +13,7 @@
 ``` shell
 sudo apt-get remove --purge '^nvidia-.*'
 sudo apt autoremove
+sudo apt autoclean
 sudo apt install --reinstall nvidia-driver-550
 sudo nvidia-settings
 sudo prime-select nvidia
