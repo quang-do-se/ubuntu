@@ -1,5 +1,6 @@
 # Need to install CUDA and Nvidia driver before install ZED SDK
 
+# Use python3.8
 
 
 # Install CUDA Toolkit 12.8
@@ -18,6 +19,10 @@ sudo apt install --reinstall nvidia-driver-550
 sudo nvidia-settings
 sudo prime-select nvidia
 reboot
+
+# https://support.stereolabs.com/hc/en-us/articles/8422008229143-How-can-I-solve-OpenGL-issues-under-Ubuntu
+glxinfo | grep OpenGL
+# It should show NVIDIA
 ```
 
 # Install ZED SDK
